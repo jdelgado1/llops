@@ -22,10 +22,18 @@
 
 ## What Data We Distill On
 
+> **Hard rule — evaluate on benchmarks, train on traces.** The student is
+> distilled **only** on frontier + web-search (WebIQ) teacher traces. Public benchmarks
+> (`RetrievalQA`, `FreshQA`, `RealTimeQA`, `web-bench`) are **evaluation-only**
+> and are *never* trained on, or the headline metric leaks. Fresh questions are
+> split **by question** into a trace-generation pool and a held-out eval pool
+> that never overlap. See
+> [golden-dataset-and-eval.md](golden-dataset-and-eval.md#traineval-separation-hard-rule).
+
 | Source | Content | Role |
 | --- | --- | --- |
-| **Production traces** | `(question + retrieved_context) → frontier_completion (+ citations)` | Primary distillation target |
-| **Curated golden set** | Human-accepted subset of the above | High-quality core |
+| **Frontier + web-search (WebIQ) traces** | `(question + retrieved_context) → frontier_completion (+ citations)`, from the **trace-generation pool only** | The *only* distillation training data |
+| **Reviewer-accepted subset** | Human-accepted traces | High-quality core |
 | **(Optional) external TMG corpus** | Public TMG docs / glossaries for domain grounding | Supplemental |
 
 ### The Key Distillation Subtlety
@@ -34,12 +42,12 @@ We distill the **reasoning / synthesis / citation over provided context**, *not*
 retrieval. Each training example is:
 
 ```
-input  = system + user question + retrieved Bing context (snapshot)
+input  = system + user question + retrieved web-search context (snapshot)
 target = frontier briefing (answer + citations)
 ```
 
 The student learns to **reason and cite over context it is given**, while
-retrieval stays live via Bing at inference. This is honest (no leakage of
+retrieval stays live via web search (WebIQ) at inference. This is honest (no leakage of
 "future" web state into weights) and explains *why drift still matters*: the
 retrieved-context distribution shifts even though retrieval itself isn't learned.
 
@@ -47,7 +55,7 @@ retrieved-context distribution shifts even though retrieval itself isn't learned
 
 ```mermaid
 flowchart TD
-    A[Hosted Agent + Bing Grounding<br/>serves users] --> B[Foundry Tracing<br/>logs prompt, context, completion]
+    A[Hosted Agent + Web Search / WebIQ<br/>serves users] --> B[Foundry Tracing<br/>logs prompt, context, completion]
     B --> C[Continuous Eval<br/>groundedness, citation, safety, latency, cost]
     C --> D{Drift / quality<br/>threshold breached?}
     D -- no --> A
@@ -60,7 +68,7 @@ flowchart TD
     I --> A
 ```
 
-1. **Serve** — Foundry hosted agent answers user queries using Bing grounding.
+1. **Serve** — Foundry hosted agent answers user queries using web search (WebIQ).
 2. **Trace** — Foundry tracing logs prompt + retrieved context + completion +
    eval signals.
 3. **Continuous eval** — scores live responses (groundedness, citation, safety,
@@ -92,7 +100,7 @@ flowchart TD
 | Layer | Service | Role in the loop |
 | --- | --- | --- |
 | AI provider | Microsoft Foundry | Models, customization, evals |
-| Agent runtime | Foundry hosted agents + **Grounding with Bing Search** | Serve grounded research |
+| Agent runtime | Foundry hosted agents + **Web Search tool (Microsoft Web IQ)** | Serve grounded research |
 | Evals & tracing | Foundry tracing + continuous/batch eval | Steps 2–3, 7 |
 | Golden dataset | Microsoft Fabric | Dataset of record (step 5) |
 | Checkpoint storage | Azure Blob Storage | Model checkpoints (step 8) |

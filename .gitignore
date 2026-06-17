@@ -1,0 +1,14 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+
+# Secrets / local config
+.env
+
+# Generated artifacts (traces, datasets, eval results)
+artifacts/
+
+# Foundry local cache
+.foundry/

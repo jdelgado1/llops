@@ -18,7 +18,8 @@ decision."** Start with an expensive **frontier model** (Claude Opus / GPT-5.5),
 use it to produce gold-standard answers, then **distill a cheaper, smaller model**
 that matches its quality on a narrow task — and **continuously retrain** it as the
 world drifts. The task is a **Telco/Media/Gaming (TMG) grounded research agent**
-that answers questions using **live web search (Bing grounding)**. Success is
+that answers questions using **live web search (Microsoft Web IQ, via the
+Foundry Web Search tool)**. Success is
 measured by **one simple number** (an "Answer Quality Score") tracked over time.
 
 ---
@@ -39,7 +40,8 @@ measured by **one simple number** (an "Answer Quality Score") tracked over time.
 
 1. Take **one Hugging Face Q&A dataset** (questions + correct answers).
 2. Split it: a **training pile** and a hidden **golden test pile**.
-3. Have the **frontier model** answer the questions (with Bing grounding) →
+3. Have the **frontier model** answer the questions (with live web search
+   grounding via WebIQ) →
    these are the gold-standard reference answers.
 4. **Score the frontier model** on the golden pile → that's the quality bar
    (one number, e.g. 94%).
@@ -64,10 +66,12 @@ measured by **one simple number** (an "Answer Quality Score") tracked over time.
 | D2 | **Distillation** as the primary customization method (not from-scratch fine-tune) | The scenario already produces frontier "teacher" outputs; Foundry has native distillation; less labeling than DPO/RFT; on-message for "cohesive Azure" | ✅ Primary (DPO/RFT mentioned as alternatives in the talk) |
 | D3 | **No full fine-tuning, ever** | Carried constraint from prior project. Only **distillation (SFT)** or **PEFT (LoRA/QLoRA)** | ✅ Hard rule |
 | D4 | Scenario = **TMG grounded research agent** (Telco/Media/Gaming) | Nikhil wanted a TMG-relevant customer use case; research + live grounding gives the strong drift story | ✅ Locked |
-| D5 | **Web search (Bing grounding)**, not classification, not tool-calling, as the task | Matches Nikhil's *written agenda* (WebIQ research agent). WebIQ is in preview → **Bing grounding is the GA fallback** Nikhil named | ✅ Locked |
+| D5 | **Web search grounding** (Microsoft Web IQ / Foundry Web Search tool), not classification, not tool-calling, as the task | Matches Nikhil's *written agenda* (WebIQ research agent). **WebIQ is now GA** (Build 2026) and verified working with GPT-5.4 on 2026-06-17 → it's the grounding path, not a fallback | ✅ Locked |
 | D6 | **One simple headline metric** ("Answer Quality Score") | Nikhil's *verbal* guidance: audience is infra/data people, "simple is better." Richer metrics exist under the hood but we demo one number | ✅ Locked |
-| D7 | Golden set = **HF Q&A dataset (seed) + frontier traces (reference)** | Nikhil said HF has representative datasets; seeding gives reproducibility; frontier answers give the gold standard | ✅ Locked |
-| D8 | HF dataset = **`PatronusAI/financebench`** (primary), `Maluuba/newsqa` (alt) | FinanceBench = analyst QA over real company financials (TMG companies are public); has reference answers + cited evidence; credible benchmark | 🔶 Proposed — confirm dataset card |
+| D7 | **Evaluate on public HF benchmarks; train only on frontier + web-search (WebIQ) traces** | Keeps the headline metric honest (no test-set leakage); benchmarks give a reproducible scoreboard, teacher traces give the gold-standard training target | ✅ Locked |
+| D8 | Datasets = **`aialt/RetrievalQA`** (frozen regression) + **FreshQA** dated snapshots (temporal drift) + **RealTimeQA** mirror (optional replayable weekly stream) + **`OpenResearcher/web-bench`** (hard ceiling). Training corpus = frontier + web-search (WebIQ) traces only | Verified live (2026-06-17): RetrievalQA (MIT; `param_knowledge_answerable` flag makes grounding *necessary*), FreshQA snapshots give *real* drift, web-bench (Apache-2.0) is the hard ceiling. **Replaces FinanceBench.** DailyQA dropped (does not exist on HF) | ✅ Locked |
+| D9 | **Distill synthesis/citation over provided context, NOT facts** | Retrieval stays live via web search (WebIQ), so drift is *distribution/skill* drift (new entities, false premises, query-mix shift), not fact-staleness — this answers "why retrain if it searches live?" | ✅ Locked |
+| D10 | **Grounding = Foundry Web Search tool (Microsoft Web IQ), not classic "Grounding with Bing Search"** | Verified live 2026-06-17: Web Search is GA, needs no extra Bing resource/roles, and supports GPT-5.4 (classic Bing grounding excluded gpt-5 and retires 2027-03-31). Hybrid use: live search for teacher traces + drift slice; RetrievalQA frozen context for reproducible regression eval | ✅ Locked |
 
 ### Decisions we REVERSED (don't re-litigate)
 
@@ -78,7 +82,11 @@ measured by **one simple number** (an "Answer Quality Score") tracked over time.
   research task (one quality score). The word "classification" should not
   reappear as the task.
 - ❌ **Pure trace-built golden set with no HF dataset.** Replaced by the
-  **HF-seed + traces** hybrid (D7).
+  **benchmarks-for-eval + traces-for-train** split (D7).
+- ❌ **`PatronusAI/financebench` as the dataset.** Originally proposed (old D8),
+  but it's QA over **static PDF filings** → live web search would be cosmetic and
+  there's **no real drift** to retrain against. **Reversed (2026-06-17)** in favor
+  of the layered benchmark stack (new D8). Don't reintroduce FinanceBench.
 - ❌ **Groundedness/citation multi-metric suite as the headline.** Too
   data-science-y for the audience; demoted to "full version under the hood"
   behind the single Answer Quality Score (D6).
@@ -132,7 +140,7 @@ measured by **one simple number** (an "Answer Quality Score") tracked over time.
 | Layer | Service |
 | --- | --- |
 | AI provider | Microsoft Foundry |
-| Agent runtime | Foundry Hosted Agents (+ Grounding with Bing Search) |
+| Agent runtime | Foundry Hosted Agents (+ Web Search tool / Microsoft Web IQ) |
 | Evals & tracing | Foundry Tracing |
 | Checkpoint storage | Azure Blob Storage |
 | Eval results & prompt/completions | Azure SQL DB |
@@ -165,7 +173,8 @@ locked decisions above (research agent + Bing + one metric + HF seed).
 1. ✅ (drafted) Define the **mock scenario** — `docs/scenario.md`.
 2. ✅ (drafted) Identify the **golden dataset + eval metric** —
    `docs/golden-dataset-and-eval.md`.
-3. ⬜ Identify **data to distill on** (HF dataset + frontier completions).
+3. ✅ Identify **data to distill on** — frontier+Bing teacher traces only;
+   benchmarks (RetrievalQA/FreshQA/RealTimeQA/web-bench) are eval-only (D8).
 4. ⬜ Build the **distillation loop** (Foundry-native; fallback GPU + LoRA/QLoRA).
 5. ⬜ **Schedule automatic retraining** + store eval results in DB (with Blu).
 
@@ -173,14 +182,16 @@ locked decisions above (research agent + Bing + one metric + HF seed).
 
 ## 8. Open Questions to Resolve Next
 
-- [ ] Confirm **`PatronusAI/financebench`** fits (columns, license, splits) — or
-      pick a different HF Q&A dataset.
+- [x] ~~Confirm the HF dataset~~ — **Resolved (2026-06-17):** layered benchmark
+      stack locked (D8); FinanceBench dropped.
+- [x] ~~Decide how to simulate drift~~ — **Resolved:** use **FreshQA** dated
+      snapshots for *real* drift (no faking); RealTimeQA mirror as optional
+      replayable weekly stream.
+- [ ] Standardize which **RealTimeQA mirror** to use (canonical repo is gated).
 - [ ] Choose the **frontier teacher** model (Claude Opus vs GPT-5.5-class).
 - [ ] Choose the **student** model (small, Foundry-deployable, PEFT-friendly).
 - [ ] Define the exact **Answer Quality Score** (groundedness %? LLM-judge
       correctness %? blended coefficient?) and the **promotion gate** thresholds.
-- [ ] Decide how to **simulate drift** with a static dataset (temporal split /
-      inject new topics / shift distribution).
 - [ ] Confirm Foundry distillation stays within **SFT/PEFT** (not full-param).
 - [ ] Align with **Blu** on the DB schema for storing eval results over time.
 
@@ -189,7 +200,13 @@ locked decisions above (research agent + Bing + one metric + HF seed).
 ## 9. Hard Rules / Guardrails
 
 - **No full fine-tuning.** Distillation (SFT) or PEFT (LoRA/QLoRA) only.
-- **Task = grounded research via Bing**, not classification, not tool-calling.
+- **Task = grounded research via the Web Search tool (WebIQ)**, not classification, not tool-calling.
+- **Evaluate on benchmarks, train on traces.** Never train on eval/regression
+  rows (no test-set leakage). Split fresh questions **by question** into a
+  trace-generation pool vs a held-out eval pool; the frozen regression set is
+  never trained on.
+- **Distill synthesis/citation over context, not facts.** Retrieval stays live;
+  drift is distribution drift, not fact-staleness.
 - **Demo one simple metric.** Don't lead with a multi-metric dashboard.
 - **Keep quality (accuracy) and performance (latency/cost) as separate
   numbers.** Don't conflate.
@@ -210,18 +227,24 @@ locked direction, and open questions. Treat its "Key Decisions" and "Hard Rules"
 as authoritative and do NOT re-litigate the reversed decisions (no
 classification task, no full fine-tuning, demo only ONE simple metric).
 
-Current locked direction: a Telco/Media/Gaming (TMG) grounded **research agent**
-that answers questions using **Bing grounding** (WebIQ is in preview, Bing is the
-fallback). We seed a golden set from a Hugging Face Q&A dataset (primary candidate
-PatronusAI/financebench), have a frontier model (Opus / GPT-5.5) produce
-gold-standard answers, then **distill** a cheaper model to match it, measured by a
-single "Answer Quality Score," and continuously retrain as the data drifts.
+Current locked direction: a Telco/Media/Gaming (TMG)-themed grounded **web
+research agent** that answers questions using the **Web Search tool (Microsoft
+Web IQ)** — now GA in Foundry and verified working with GPT-5.4. We **evaluate on
+public HF benchmarks but train
+only on frontier + web-search (WebIQ) teacher traces** (no test-set leakage). The benchmark
+stack is layered: `aialt/RetrievalQA` (frozen regression), FreshQA dated
+snapshots (temporal drift), a RealTimeQA mirror (optional weekly stream), and
+`OpenResearcher/web-bench` (hard ceiling). A frontier model (Opus / GPT-5.5)
+produces gold-standard traces; we **distill** a cheaper model to match it,
+measured by a single "Answer Quality Score," and continuously retrain as the data
+drifts. We distill **synthesis/citation over context, not facts** (retrieval
+stays live), so drift = distribution drift.
 
 My next task is: <PICK ONE — e.g.
-  - "confirm the FinanceBench dataset card (columns/license/splits) and lock the dataset", or
+  - "pick the frontier teacher + student models deployable in my Foundry project", or
   - "design the exact Answer Quality Score + promotion-gate thresholds", or
   - "scaffold the Foundry distillation loop (plan A) with a GPU LoRA/QLoRA fallback (plan B)", or
-  - "write the Python to load the HF dataset, split it, and run a frontier-vs-cheap-model baseline eval">.
+  - "write the Python to load RetrievalQA + FreshQA, split train/held-out, and run a frontier-vs-cheap-model baseline eval">.
 
 Work in this repo. Keep it simple and legible for an infra/data audience. Ask me
 clarifying questions before writing significant code, and update CONTEXT.md and
@@ -240,7 +263,7 @@ the docs as decisions get made.
 - **Trace:** a logged record of a real model interaction (question + answer +
   context). We don't need real production traces for the demo — the HF dataset
   stands in.
-- **Grounding / Bing grounding:** the model searches the live web and bases its
+- **Grounding / web search (WebIQ):** the model searches the live web and bases its
   answer on what it finds.
 - **Drift:** the world changes, so yesterday's good model gets worse over time.
 - **Promotion gate:** the pass/fail rules a new model must clear before it

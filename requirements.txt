@@ -1,0 +1,7 @@
+# TMG Research Agent — LLMOps distillation loop
+# Targets the GA Microsoft Foundry Agents API + Web Search tool (WebIQ).
+azure-ai-projects>=1.0.0
+azure-identity>=1.17
+openai>=1.40
+datasets>=2.19
+python-dotenv>=1.0

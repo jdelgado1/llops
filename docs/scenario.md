@@ -20,7 +20,7 @@ clients** — the agent becomes their research surface for client briefings.)
 It powers an internal **Market & Competitive Intelligence research assistant**.
 Given a natural-language question, the agent:
 
-1. Plans the query and calls **Grounding with Bing Search** to pull current
+1. Plans the query and calls the **Web Search tool (Microsoft Web IQ)** to pull current
    web / news / analyst commentary.
 2. Optionally calls internal tools (function calling): a product-spec knowledge
    base, a pricing/plan lookup, an internal metrics service.
@@ -53,15 +53,18 @@ grounded-research drift story front and center.
 - "What are analysts saying about **ad-supported streaming tiers** adoption this
   month?"
 
-## Concrete Golden-Set Seed (for the Demo)
+## Concrete Datasets (for the Demo)
 
-For the actual demo we seed the questions from an existing Hugging Face Q&A
-dataset rather than hand-writing them — primary pick **`PatronusAI/financebench`**
-(analyst-style questions over real company financial filings; telco/media/gaming
-are all public companies), with **`Maluuba/newsqa`** as a news-flavored
-alternative. This keeps the scenario realistic *and* reproducible. See
-[`golden-dataset-and-eval.md`](golden-dataset-and-eval.md) for how to pick and
-use it.
+For the demo we evaluate on public Hugging Face benchmarks (never training on
+them) and train only on frontier + web-search (WebIQ) teacher traces. The benchmarks are
+layered: **`aialt/RetrievalQA`** as the frozen regression set (it flags which
+questions actually *require* retrieval, proving grounding is necessary),
+**FreshQA** dated snapshots for real temporal drift, an optional **RealTimeQA**
+mirror as a replayable weekly stream, and **`OpenResearcher/web-bench`** as a
+hard ceiling. A small hand-picked **TMG current-events slice** layers the
+telco/media/gaming flavor on top for the talk. See
+[`golden-dataset-and-eval.md`](golden-dataset-and-eval.md) for the full
+architecture and the train/eval-separation rule.
 
 ## Why This Is a Strong Drift Scenario
 
@@ -70,7 +73,7 @@ News, competitor moves, regulations, earnings, and game-season sentiment change
 shift week-to-week. A model that scores well in Q1 quietly degrades by Q3 as:
 
 - new competitor products / terminology appear,
-- the retrieved Bing context distribution changes,
+- the retrieved web-search context distribution changes,
 - query mix shifts (e.g., a major game launch floods gaming questions).
 
 This is precisely the condition that justifies **continuous evaluation +
@@ -105,7 +108,7 @@ The demo "works" if we can show, end-to-end:
 - Single TMG segment for the demo (e.g., telco only) for tighter scope, or all
   three to show breadth? Recommendation: **build all three into the golden set,
   demo with telco + gaming** for variety.
-- Do we want internal "private" tools (KB / pricing) mocked, or Bing-only for
-  v1? Recommendation: **Bing-only for v1**, add one mocked internal tool if time.
+- Do we want internal "private" tools (KB / pricing) mocked, or web-search-only for
+  v1? Recommendation: **Web Search (WebIQ) only for v1**, add one mocked internal tool if time.
 - Which frontier model as teacher — Claude Opus or GPT-5.5-class? (Affects trace
   collection setup.)
