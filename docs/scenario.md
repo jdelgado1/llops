@@ -1,114 +1,88 @@
-# Mock Scenario — TMG Market & Competitive Intelligence Research Agent
+# Scenario — TMG Operations & Support Tool-Calling Agent
 
-> Task #1 from Nikhil's list: *Define mock scenario — what are they using the
-> deployed LLM for, who are the users.*
+> Task #1. The mock customer scenario the whole demo is built around. Keep it
+> concrete and legible for an infra/data audience.
 
-## Client Archetype
+## The customer
 
-A large **Telco, Media & Gaming (TMG)** operator — a company spanning some or all
-of:
+A **Telco / Media / Gaming (TMG)** operator runs an internal **operations &
+support agent** that frontline staff and automated workflows use to act on
+customer and network issues. Instead of writing prose, the agent's job is to
+**call the right internal tool with the right arguments** — open a ticket, check
+a network status, reset a modem, look up a game server, schedule a technician,
+or search the live web for competitive/outage context.
 
-- **Telco:** broadband / mobile / 5G fixed wireless access (FWA), MVNO partners.
-- **Media:** OTT streaming (SVOD/AVOD), content licensing, ad-supported tiers.
-- **Gaming:** live-service / free-to-play titles, battle passes, in-game economies.
+This is a realistic agent workload: the value is in **taking the correct action**
+(the correct function call), not in writing a paragraph.
 
-(The same scenario works for a **consultancy or account team serving TMG
-clients** — the agent becomes their research surface for client briefings.)
+## What the agent does (one turn)
 
-## What the Deployed LLM Does
+**Input:** a user request + the set of tool schemas currently available.
 
-It powers an internal **Market & Competitive Intelligence research assistant**.
-Given a natural-language question, the agent:
+**Output:** the **correct function call(s)** — the right tool name and a correct,
+fully-typed argument object.
 
-1. Plans the query and calls the **Web Search tool (Microsoft Web IQ)** to pull current
-   web / news / analyst commentary.
-2. Optionally calls internal tools (function calling): a product-spec knowledge
-   base, a pricing/plan lookup, an internal metrics service.
-3. Synthesizes a **cited, house-style briefing** — concise, sourced, and written
-   in the company's analyst voice.
+Example:
 
-Function calling is therefore a **capability inside the agent**, not the headline
-task — which lets us reuse prior function-calling expertise while keeping the
-grounded-research drift story front and center.
+> **Request:** "Open a high priority support ticket for customer CU-9012 about a
+> billing error."
+>
+> **Correct call:**
+> `create_support_ticket(customer_id="CU-9012", issue_type="billing", priority="high")`
 
-## Who the Users Are
+The agent may also need to:
 
-| Persona | Typical need |
+- **disambiguate among tools** (pick `reset_modem` vs `schedule_technician`),
+- **emit parallel calls** (check network status for two regions at once), and
+- **invoke `web_search`** (Microsoft Web IQ) when the answer needs live web
+  context — this is how the "web search" thread from the agenda is honored,
+  *as a tool*, without making fuzzy prose the task.
+
+## The tools (bundled TMG set)
+
+The bundled [`data/toolcalling_sample.jsonl`](../data/toolcalling_sample.jsonl)
+defines a small, legible TMG toolset:
+
+| Tool | Purpose |
 | --- | --- |
-| Competitive intelligence analyst | "What did competitors announce this week?" |
-| Product manager (broadband / streaming / live-service) | Feature & pricing benchmarking |
-| Go-to-market / marketing | Campaign and positioning context |
-| Strategy / corp dev | Earnings, regulatory, and market-trend briefings |
-| Executive | Short, sourced briefings before meetings |
+| `get_network_status(region, service_type)` | Mobile/broadband/fiber status |
+| `check_data_usage(account_id, billing_cycle?)` | Account data usage |
+| `create_support_ticket(customer_id, issue_type, priority)` | Open a ticket |
+| `escalate_ticket(ticket_id, tier)` | Escalate a ticket |
+| `reset_modem(device_id)` | Remote modem reset |
+| `schedule_technician(account_id, date, window)` | Book an on-site visit |
+| `lookup_game_server(game, region)` | Game server cluster status |
+| `get_streaming_outage(platform, region)` | Streaming outage check |
+| `get_subscription(account_id)` | Subscription plan lookup |
+| `web_search(query, freshness?)` | Live web (Web IQ) lookup |
 
-## Representative Queries
+At scale, swap in **ToolACE** (richer training prompts/schemas) and **BFCL**
+(the standard eval) via `TOOLCALLING_SOURCE`.
 
-- "Summarize this week's competitor announcements on **5G fixed wireless access**
-  in the US, with sources."
-- "What **EU regulatory changes** this quarter affect **OTT streaming bundles**?"
-- "Compare **player sentiment** on our latest **battle pass** vs the competitor's
-  new season launch."
-- "Give me a briefing on **ARPU and churn** trends from the top 3 carriers' last
-  earnings calls."
-- "What are analysts saying about **ad-supported streaming tiers** adoption this
-  month?"
+## Who uses it
 
-## Concrete Datasets (for the Demo)
+- **Frontline support / NOC staff** — act on tickets and outages fast.
+- **Automated workflows** — the agent is the "hands" that call backend APIs.
+- **PMs / analysts** — use the `web_search` tool for competitive/outage context.
 
-For the demo we evaluate on public Hugging Face benchmarks (never training on
-them) and train only on frontier + web-search (WebIQ) teacher traces. The benchmarks are
-layered: **`aialt/RetrievalQA`** as the frozen regression set (it flags which
-questions actually *require* retrieval, proving grounding is necessary),
-**FreshQA** dated snapshots for real temporal drift, an optional **RealTimeQA**
-mirror as a replayable weekly stream, and **`OpenResearcher/web-bench`** as a
-hard ceiling. A small hand-picked **TMG current-events slice** layers the
-telco/media/gaming flavor on top for the talk. See
-[`golden-dataset-and-eval.md`](golden-dataset-and-eval.md) for the full
-architecture and the train/eval-separation rule.
+## Why this drifts (why you retrain)
 
-## Why This Is a Strong Drift Scenario
+- **Tool schemas change:** new tools ship; arguments/enums change; deprecated
+  tools are removed. A model trained on the old schemas starts calling things
+  wrong → **AST accuracy drops**.
+- **Usage mix shifts:** seasonal events (game launches, sports seasons, outages)
+  change which tools dominate.
+- **New entities:** new device types, plans, platforms, regions.
 
-News, competitor moves, regulations, earnings, and game-season sentiment change
-**continuously**. The input distribution *and* the "correct" grounded answer
-shift week-to-week. A model that scores well in Q1 quietly degrades by Q3 as:
+Because the **action surface itself drifts**, the agent must be **retrained on
+fresh correct traces** — which is exactly the lifecycle story. Retraining is
+visibly justified: change the tools, watch the score fall, retrain, watch it
+recover.
 
-- new competitor products / terminology appear,
-- the retrieved web-search context distribution changes,
-- query mix shifts (e.g., a major game launch floods gaming questions).
+## Why this scenario (vs grounded research QA)
 
-This is precisely the condition that justifies **continuous evaluation +
-automatic retraining**, the centerpiece of the demo.
-
-## Why Customization (Distillation) Pays Off Here
-
-The task is **narrow and domain-heavy**:
-
-- Dense TMG jargon: MVNO, ARPU, churn, FWA, OTT, SVOD/AVOD, DAU/MAU,
-  live-service, battle pass, cohort retention, spectrum, bundle, cord-cutting.
-- A consistent **house output style**: short, sourced, structured briefings.
-
-A smaller model **distilled** from the frontier model can internalize the domain
-conventions and house style, matching frontier quality **on this narrow task** at
-materially lower **cost and latency** — the payoff the demo argues for.
-
-## Success Criteria (Scenario-Level)
-
-The demo "works" if we can show, end-to-end:
-
-1. A frontier baseline producing high-quality grounded briefings + traces.
-2. A golden dataset built from those traces (see
-   [`golden-dataset-and-eval.md`](golden-dataset-and-eval.md)).
-3. Continuous eval detecting a **drift-induced quality drop**.
-4. An **automatic distillation run** producing a smaller candidate.
-5. A **promotion gate** that ships the candidate only when its **Answer Quality
-   Score** (plus safety, latency, and cost) clears the bar.
-
-## Open Questions for the Team
-
-- Single TMG segment for the demo (e.g., telco only) for tighter scope, or all
-  three to show breadth? Recommendation: **build all three into the golden set,
-  demo with telco + gaming** for variety.
-- Do we want internal "private" tools (KB / pricing) mocked, or web-search-only for
-  v1? Recommendation: **Web Search (WebIQ) only for v1**, add one mocked internal tool if time.
-- Which frontier model as teacher — Claude Opus or GPT-5.5-class? (Affects trace
-  collection setup.)
+We first built a grounded research-QA scenario; on Foundry it **saturated**
+(frontier = base = distilled ≈ 90%, distillation 0 lift). Tool calling, scored by
+**objective AST accuracy**, is the task that actually demonstrates **a small
+distilled model matching or beating a frontier model** — the headline the session
+needs. See `CONTEXT.md` for the full pivot rationale.

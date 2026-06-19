@@ -17,7 +17,7 @@ The repo code is tenant-agnostic: it reads the endpoint + deployment names from
 | Resource group | e.g. `rg-llmops` |
 | **Foundry resource + project** (AI Services) | gives the project endpoint `https://<res>.services.ai.azure.com/api/projects/<proj>` |
 | **Teacher deployment** | `gpt-5.4` (Global Standard). ⚠️ GPT-5.x may need a **quota tier** request on some subs (Tier 5/6 have it by default). |
-| **Base student for fine-tuning** | `Qwen3-14B` (Direct-from-Azure, fine-tune-only). Region must support **Global** SFT (e.g. East US 2). |
+| **Base student for fine-tuning** | `Qwen3-32B` (Direct-from-Azure, **fine-tune-only — base inference unavailable**). Region must support **Global** SFT (e.g. East US 2). |
 | **Fine-tuned student deployment** | created after SFT → **serverless (Standard/Global)**, no GPU quota |
 | **Web Search tool** | enable subscription preview feature if used (no extra resource) |
 
@@ -32,7 +32,7 @@ The repo code is tenant-agnostic: it reads the endpoint + deployment names from
 ```
 FOUNDRY_PROJECT_ENDPOINT=https://<res>.services.ai.azure.com/api/projects/<proj>
 TEACHER_MODEL=gpt-5.4
-STUDENT_BASE_MODEL=qwen3-14b
+STUDENT_BASE_MODEL=qwen3-32b
 STUDENT_FINETUNED_DEPLOYMENT=        # set after you deploy the distilled model
 FABRIC_WORKSPACE_ID=                 # for the trace push
 FABRIC_LAKEHOUSE=                    # table/lakehouse name
@@ -45,26 +45,32 @@ FABRIC_LAKEHOUSE=                    # table/lakehouse name
 
 ---
 
-## B. Pipeline changes (grounded-QA → tool-calling)
-What changes vs the current repo (grounded-QA code is **kept as the "why Option A" evidence**):
+## B. Pipeline changes (grounded-QA → tool-calling) — BUILT
+The tool-calling pipeline is built as **new modules** (the grounded-QA code is
+**kept as the "why Option A" evidence**). Status below:
 
-| Current (grounded QA) | Option A (tool calling) | Action |
+| Concern | Module | Status |
 | --- | --- | --- |
-| `data.py` loads RetrievalQA | ToolACE prompts + tool schemas | **New loader** for ToolACE `data.json` |
-| `traces.py` = grounded answer | teacher emits `tool_calls`, AST-validated | **New trace gen**: GPT-5.4 with tools → keep AST-correct calls |
-| `sft_dataset.py` = `messages` text target | function-calling SFT (messages + `tools` + `tool_calls` target) | **Extend** to function-calling JSONL |
-| `judge.py` LLM-judge / string-match | **BFCL AST accuracy** | **New** `bfcl_eval` wrapper around `bfcl-eval` |
-| `distill_eval.py` 3-way text eval | 3-way AST table | **Repurpose** for AST scores |
-| (none) | push accepted traces to Fabric | **New** Fabric sink (see §D) |
+| Tool-calling loader + by-id split | `src/llmops/tooldata.py` | ✅ built (sample / hf / path) |
+| Objective metric (BFCL-style AST) | `src/llmops/ast_check.py` | ✅ built (in-repo, no harness) |
+| Call a deployment with tools (GPT+qwen) | `src/llmops/tool_models.py` | ✅ built (+ text-parse fallback) |
+| Teacher traces, AST-validated/kept | `src/llmops/tool_traces.py` | ✅ built (rejection sampling) |
+| Function-calling SFT JSONL (+validator) | `src/llmops/tool_sft.py` | ✅ built |
+| 3-way AST eval + cost/latency | `src/llmops/tool_eval.py` | ✅ built |
+| Push accepted traces to Fabric | `src/llmops/fabric.py` | ✅ built (OneLake + local fallback) |
+| Bundled offline TMG tool set | `data/toolcalling_sample.jsonl` | ✅ built |
 
-Keep: `config.py`, `models.py` (chat completions client), the Foundry SFT → serverless deploy flow (already validated).
+Keep: `config.py`, `models.py` (client). Validated offline end-to-end
+(loader → AST → SFT → Fabric-prep). Remaining = run on Foundry (§C).
 
 ---
 
 ## C. End-to-end run order
-1. **Baselines** — BFCL-Python AST eval on **GPT-5.4** and **base Qwen3-14B** (Foundry endpoints). Record AST accuracy.
+1. **Baselines** — AST eval on **GPT-5.4**. Base Qwen3-32B inference is
+   unavailable, so the "before" column is **optional**: omit it, or use a
+   **format-primer** near-base proxy. Record AST accuracy.
 2. **Generate distillation data** — ToolACE prompts → GPT-5.4 `tool_calls` → AST-validate → keep correct → **SFT JSONL**.
-3. **Distill** — upload JSONL to Foundry **Fine-tune** wizard: **Supervised / Global / Qwen3-14B** → train.
+3. **Distill** — upload JSONL to Foundry **Fine-tune** wizard: **Supervised / Global / Qwen3-32B** → train.
 4. **Deploy** the fine-tuned model (serverless) → set `STUDENT_FINETUNED_DEPLOYMENT`.
 5. **Eval distilled** — BFCL-Python AST accuracy against its endpoint.
 6. **Three-way table** — frontier vs base vs distilled. Target: `distilled ≥ frontier ≫ base`.
@@ -95,5 +101,5 @@ the DB + Power BI side).
 
 ## E. Open decisions
 - `ε` for the promotion gate (set after baselines exist).
-- Student size: **Qwen3-14B** (proven) vs Qwen3-8B (more dramatic) — start with 14B.
+- Student = **Qwen3-32B** (the only Foundry-fine-tunable Qwen). Baseline: omit, or build a **format-primer** near-base proxy — decide after seeing teacher/distilled numbers.
 - Optional FRAMES multi-hop "stretch" exhibit — default **skip** for 6/26.

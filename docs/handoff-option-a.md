@@ -10,7 +10,7 @@ Build and measure a pipeline proving a **small distilled model matches/beats a f
 ## 1. Why this design (context)
 - Demo thesis (Nikhil): *"model choice is a lifecycle decision."* Start with a frontier model, collect traces, build a golden set, distill a smaller model, continuously retrain on drift, promote via gates.
 - We need the demo to show a **smaller model matching/beating a larger one at a task**, measured by a metric that **discriminates** models and is **objective** (no LLM-judge bias).
-- Prior experiments: a grounded-QA task **saturated** (frontier = base = distilled ≈ 90%); closed-book showed a gap but distillation added **0 lift by design**. Conclusion: only **tool calling with AST accuracy** reliably yields the "smaller beats larger" headline — and it's already proven here (a Qwen3-14B LoRA beat GPT‑5.4 on BFCL-Python).
+- Prior experiments: a grounded-QA task **saturated** (frontier = base = distilled ≈ 90%); closed-book showed a gap but distillation added **0 lift by design**. Conclusion: only **tool calling with AST accuracy** reliably yields the "smaller beats larger" headline — and it's already proven in prior work (a small Qwen3 beat GPT‑5.4 on BFCL-Python).
 - Web search is honored by including a **`web_search` tool** in the toolset (Option A), not by switching tasks.
 
 ## 2. What "Option A" is (definition)
@@ -24,7 +24,7 @@ A **TMG ops/support agent** whose job is **tool/function calling**: given a user
 | Eval / golden set | **BFCL v4, Python subset** via `bfcl-eval` |
 | Metric | **BFCL AST accuracy** (right function + correct args) — single objective number |
 | Teacher (large) | GPT‑5.4 (or Claude Opus) via Microsoft Foundry |
-| Student (small) | **Qwen3-8B** primary (Qwen3-4B for more drama; Qwen3-14B = proven fallback) |
+| Student (small) | **Qwen3-32B** — the only Foundry-fine-tunable Qwen size. ⚠️ **base inference unavailable** (fine-tune-only), so the "before" baseline is an optional proxy |
 | Customization | **Foundry managed SFT distillation** (JSONL upload, serverless deploy, **no GPU**) — never full FT |
 | Training prompts | ToolACE (data.json) — supplies requests + tool schemas |
 | Training targets | **Frontier teacher's tool-call completions, rejection-sampled to AST-correct** (honors "frontier completions from prod traces") |
@@ -44,19 +44,19 @@ This makes the data "the frontier model's completions from prod traces," and fil
 > **Supervised** + **Global**); serving = **serverless** deployment; eval calls the
 > Foundry OpenAI-compatible endpoints. Python runs in this repo's `.venv`.
 
-1. **Establish baselines (no training yet).**
-   - Deploy the teacher **GPT-5.4** and the base **Qwen3-14B** on Foundry (serverless).
-   - Run **BFCL-Python AST eval** on frontier + base Qwen3-14B against their Foundry endpoints. Record AST accuracy.
-   - ⚠️ Confirm each deployment exposes the **function-calling API** (`tools` param + emits `tool_calls`). If qwen needs special tool-call handling, adapt the eval client.
+1. **Establish baselines.**
+   - Deploy the teacher **GPT-5.4** on Foundry. Run **AST eval** on the teacher; record accuracy.
+   - ⚠️ **Base Qwen3-32B inference is NOT available** on Foundry (fine-tune-only), so you **cannot** measure an untuned base directly. The "before" column is **optional**: either omit it (headline = teacher vs distilled) or supply a **near-base proxy** — an off-task / format-primer fine-tune (knows the tool-call format, not our task).
+   - ⚠️ Confirm each *deployed* model exposes the **function-calling API** (`tools` param + emits `tool_calls`) via `smoke_toolcalling.py`. If qwen needs special tool-call handling, the eval client already has a text-parse fallback.
 2. **Generate distillation data.**
    - ToolACE prompts + tool schemas → call **GPT-5.4** → capture `tool_calls` → **AST-validate** against the expected answer → keep only correct → write **OpenAI-format SFT JSONL** (messages + tools + assistant tool-call target).
    - Include a `web_search` tool in the schemas so the agent learns when/how to invoke it.
 3. **Distill (Foundry managed SFT).**
-   - Upload the SFT JSONL to the Foundry **Fine-tune** wizard → **Supervised**, **Global**, base **Qwen3-14B** → train. (Same flow already validated for qwen3-32b.)
+   - Upload the SFT JSONL to the Foundry **Fine-tune** wizard → **Supervised**, **Global**, base **Qwen3-32B** → train. (Flow already validated for qwen3-32b.)
 4. **Deploy + eval the distilled student.**
    - Deploy the fine-tuned model (serverless), run **BFCL-Python AST eval** against its endpoint. Record AST accuracy.
-5. **Three-way comparison.**
-   - Table: **frontier vs base Qwen3-14B vs distilled Qwen3-14B** on AST accuracy. Target: `distilled ≥ frontier ≫ base`.
+5. **Comparison.**
+   - Table: **frontier vs distilled Qwen3-32B** (plus the optional near-base proxy) on AST accuracy. Target: `distilled ≥ frontier` (and `≫` the proxy if present).
 6. **Cost/latency.**
    - Measure $/1k, p50/p95 latency, tokens/req for the distilled qwen vs GPT-5.4 (watch over-thinking / excess reasoning tokens). This is the "parity at lower cost" number.
 7. **Lifecycle wiring (loop).**
@@ -65,8 +65,8 @@ This makes the data "the frontier model's completions from prod traces," and fil
    - Inject new tools / changed schemas → AST accuracy drops → retrain on fresh traced data → accuracy recovers. (Dashboard line moves.)
 
 ## 6. Success criteria
-- **Headline:** distilled Qwen3-8B AST accuracy **≥ GPT‑5.4** on BFCL-Python (matches or beats).
-- **Cost:** distilled-8B materially cheaper + faster than GPT‑5.4 at comparable accuracy.
+- **Headline:** distilled Qwen3-32B AST accuracy **≥ GPT‑5.4** on BFCL-Python (matches or beats).
+- **Cost:** distilled-32B materially cheaper + faster than GPT‑5.4 at comparable accuracy.
 - **Promotion gate:** ship distilled only if `AST(distilled) ≥ AST(frontier) − ε` AND cheaper AND faster AND safety pass.
 - **Loop:** drift → retrain → recovery visibly demonstrated.
 
@@ -77,13 +77,17 @@ This makes the data "the frontier model's completions from prod traces," and fil
 - Keep **train (ToolACE) and eval (BFCL) separate** — no leakage.
 - Confirm each model's deployment exposes the **function-calling API** (`tools` + `tool_calls`) before scoring.
 
-## 8. Pipeline assets (this repo)
-Adapt the existing grounded-QA pipeline (kept as the "why Option A" evidence):
-- **`src/llmops/traces.py`** → new variant: ToolACE prompts → GPT-5.4 `tool_calls` → AST-validate → keep correct.
-- **`src/llmops/sft_dataset.py`** → emit **function-calling** SFT JSONL (messages + tools + tool-call target).
-- **New `bfcl_eval` wrapper** → run `bfcl-eval` (BFCL v4 Python subset) against the Foundry endpoints; record AST accuracy.
-- **`src/llmops/distill_eval.py`** → repurpose for the 3-way AST table (frontier / base / distilled).
-- **New Fabric sink** → push accepted traces from Foundry Tracing into a **Fabric** table (golden/drift of record).
+## 8. Pipeline assets (this repo) — BUILT
+The tool-calling pipeline is built as new modules; the grounded-QA pipeline is
+kept unmodified as the "why Option A" evidence.
+- **`src/llmops/tooldata.py`** — tool-calling loader + deterministic by-id train/eval split (sample / hf / path).
+- **`src/llmops/ast_check.py`** — the objective metric: BFCL-style AST accuracy (in-repo, no harness).
+- **`src/llmops/tool_models.py`** — call a deployment with tools; parse `tool_calls` (GPT + qwen, text fallback).
+- **`src/llmops/tool_traces.py`** — teacher → tool calls → AST-validate → keep correct (rejection sampling).
+- **`src/llmops/tool_sft.py`** — correct traces → function-calling SFT JSONL (messages + tools + tool-call target) + validator.
+- **`src/llmops/tool_eval.py`** — 3-way AST table (frontier / base / distilled) + cost/latency.
+- **`src/llmops/fabric.py`** — push accepted traces into a Fabric Lakehouse (OneLake) with a local fallback.
+- **`data/toolcalling_sample.jsonl`** — bundled offline TMG tool set so everything runs without network.
 
 ## 9. Open decisions (pick before running)
 - `ε` for the promotion gate (set after baseline numbers exist).

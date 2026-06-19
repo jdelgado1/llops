@@ -1,7 +1,12 @@
-# TMG Research Agent — LLMOps distillation loop
-# Targets the GA Microsoft Foundry Agents API + Web Search tool (WebIQ).
+# TMG Tool-Calling Agent — LLMOps distillation loop
+# Targets the GA Microsoft Foundry Agents API + OpenAI-compatible endpoints.
+# The objective metric (BFCL-style AST accuracy) is implemented in-repo
+# (src/llmops/ast_check.py) so no heavyweight eval harness is required.
 azure-ai-projects>=1.0.0
 azure-identity>=1.17
 openai>=1.40
 datasets>=2.19
 python-dotenv>=1.0
+
+# Optional, for pulling BFCL/ToolACE at scale (TOOLCALLING_SOURCE=hf):
+#   pip install bfcl-eval
