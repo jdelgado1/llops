@@ -16,6 +16,7 @@ from dataclasses import dataclass, field
 from datasets import load_dataset
 
 RETRIEVALQA = "aialt/RetrievalQA"
+WEBBENCH = "OpenResearcher/web-bench"
 
 
 @dataclass
@@ -86,3 +87,35 @@ def load_retrievalqa(
         else:
             trace_pool.append(it)
     return trace_pool, eval_pool
+
+
+def load_webbench(split: str = "webwalkerqa_ref", limit: int | None = None) -> list[QAItem]:
+    """Load a split of OpenResearcher/web-bench as the HARD eval (multi-hop research).
+
+    This is the "hard ceiling" benchmark where the teacher's reasoning/synthesis
+    should genuinely beat a small student — i.e. where a real gap appears. Use
+    clean English splits: ``webwalkerqa_ref``, ``seal_ref``, ``gaia_text``.
+    Avoid ``hle`` (multiple-choice) and the encrypted ``browsecomp`` / ``xbench``.
+
+    web-bench has no bundled context, so eval it in ``web_search`` (or
+    ``closed_book``) mode, not ``frozen_context``.
+    """
+    ds = load_dataset(WEBBENCH, split=split)
+    items: list[QAItem] = []
+    for row in ds:
+        question = row.get("question")
+        answer = row.get("answer")
+        if not question or not answer:
+            continue
+        items.append(
+            QAItem(
+                qid=str(row.get("query_id")),
+                question=question,
+                answers=[answer] if isinstance(answer, str) else list(answer),
+                context=[],
+                needs_retrieval=True,
+            )
+        )
+        if limit is not None and len(items) >= limit:
+            break
+    return items

@@ -18,7 +18,7 @@ import time
 from pathlib import Path
 
 from .config import get_settings
-from .data import load_retrievalqa
+from .data import load_retrievalqa, load_webbench
 from .judge import judge_answer
 from .models import answer_closed_book, answer_over_context, get_client
 from .teacher import GroundedTeacher
@@ -26,21 +26,35 @@ from .teacher import GroundedTeacher
 ARTIFACTS = Path("artifacts")
 
 MODES = ("frozen_context", "closed_book", "web_search")
+DATASETS = ("retrievalqa", "webbench")
 
 
-def run(limit: int | None = None, eval_pct: int = 30, mode: str = "frozen_context") -> dict:
+def run(
+    limit: int | None = None,
+    eval_pct: int = 30,
+    mode: str = "frozen_context",
+    dataset: str = "retrievalqa",
+    split: str = "webwalkerqa_ref",
+) -> dict:
     if mode not in MODES:
         raise ValueError(f"mode must be one of {MODES}, got {mode!r}")
+    if dataset not in DATASETS:
+        raise ValueError(f"dataset must be one of {DATASETS}, got {dataset!r}")
     settings = get_settings()
     client = get_client(settings)
 
-    _, eval_pool = load_retrievalqa(eval_pct=eval_pct)
-    if limit is not None:
-        eval_pool = eval_pool[:limit]
+    if dataset == "webbench":
+        eval_pool = load_webbench(split=split, limit=limit)
+    else:
+        _, eval_pool = load_retrievalqa(eval_pct=eval_pct)
+        if limit is not None:
+            eval_pool = eval_pool[:limit]
     n = len(eval_pool)
     if n == 0:
         raise RuntimeError("Eval pool is empty — check the dataset/split settings.")
 
+    label = f"{dataset}:{split}" if dataset == "webbench" else dataset
+    print(f"Dataset:   {label}")
     print(f"Mode:      {mode}")
     print(f"Eval pool: {n} held-out questions")
     print(f"Teacher:   {settings.teacher_model}")
@@ -104,6 +118,7 @@ def run(limit: int | None = None, eval_pct: int = 30, mode: str = "frozen_contex
     teacher_score = round(100 * teacher_correct / n, 1)
     student_score = round(100 * student_correct / n, 1)
     summary = {
+        "dataset": label,
         "mode": mode,
         "n": n,
         "teacher_model": settings.teacher_model,
@@ -137,8 +152,19 @@ def main() -> None:
         default="frozen_context",
         help="frozen_context (regression guardrail) | closed_book (floor) | web_search (the real gap)",
     )
+    ap.add_argument(
+        "--dataset",
+        choices=DATASETS,
+        default="retrievalqa",
+        help="retrievalqa (easy factoid) | webbench (hard multi-hop research)",
+    )
+    ap.add_argument(
+        "--split",
+        default="webwalkerqa_ref",
+        help="web-bench split: webwalkerqa_ref | seal_ref | gaia_text",
+    )
     args = ap.parse_args()
-    run(limit=args.limit, eval_pct=args.eval_pct, mode=args.mode)
+    run(limit=args.limit, eval_pct=args.eval_pct, mode=args.mode, dataset=args.dataset, split=args.split)
 
 
 if __name__ == "__main__":

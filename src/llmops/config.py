@@ -22,6 +22,7 @@ class Settings:
     student_model: str
     judge_model: str
     student_finetuned_deployment: str | None
+    baseline_deployment: str | None
     websearch_country: str
     websearch_city: str
     websearch_region: str
@@ -40,6 +41,7 @@ def get_settings() -> Settings:
         student_model=os.environ.get("STUDENT_MODEL", "gpt-4.1-mini"),
         judge_model=os.environ.get("JUDGE_MODEL", "gpt-5.4"),
         student_finetuned_deployment=os.environ.get("STUDENT_FINETUNED_DEPLOYMENT") or None,
+        baseline_deployment=os.environ.get("BASELINE_DEPLOYMENT") or None,
         websearch_country=os.environ.get("WEBSEARCH_COUNTRY", "US"),
         websearch_city=os.environ.get("WEBSEARCH_CITY", "New York"),
         websearch_region=os.environ.get("WEBSEARCH_REGION", "NY"),
