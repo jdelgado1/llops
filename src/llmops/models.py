@@ -74,3 +74,48 @@ def answer_closed_book(client, model: str, question: str) -> str:
         ],
     )
     return _strip_think(resp.choices[0].message.content)
+
+
+def invoke_model(
+    deployment: str,
+    messages: list[dict],
+    tools: list[dict] | None = None,
+    model_name: str = None,
+) -> dict:
+    """
+    Invoke a model deployment with tool-calling support.
+    
+    Returns: {
+        tool_calls: [...],
+        latency_ms: float,
+        tokens_used: int
+    }
+    """
+    from .config import get_settings
+    from .tool_models import call_with_tools
+    
+    settings = get_settings()
+    client = get_client(settings)
+    
+    if tools is None:
+        tools = []
+    
+    # deployment name is the model name for this API
+    calls, usage, latency_s = call_with_tools(
+        client=client,
+        model=deployment,
+        messages=messages,
+        tools=tools,
+        tool_choice="auto",
+    )
+    
+    tokens = 0
+    if usage:
+        tokens = getattr(usage, "total_tokens", 0)
+    
+    return {
+        "tool_calls": calls,
+        "latency_ms": latency_s * 1000,
+        "tokens_used": tokens,
+    }
+
