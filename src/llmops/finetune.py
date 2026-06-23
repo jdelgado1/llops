@@ -47,7 +47,11 @@ def submit_finetune(
     up = client.files.create(file=(path.name, path.read_bytes()), purpose="fine-tune")
     print(f"  training file id: {up.id}")
 
-    kwargs: dict = {"training_file": up.id, "model": model}
+    kwargs: dict = {
+        "training_file": up.id,
+        "model": model,
+        "method": {"type": "supervised"},
+    }
     if suffix:
         kwargs["suffix"] = suffix
     if validation_file:
@@ -56,8 +60,6 @@ def submit_finetune(
         kwargs["validation_file"] = v.id
         print(f"  validation file id: {v.id}")
     if epochs:
-        # Most Azure/Foundry fine-tune endpoints accept the classic hyperparameters
-        # block; if your API wants method={...}, adjust here.
         kwargs["hyperparameters"] = {"n_epochs": epochs}
 
     # Qwen3-32B (and other Direct-from-Azure models) require Global training type.

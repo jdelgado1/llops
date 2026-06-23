@@ -95,7 +95,7 @@ def _load_from_path(path: Path) -> list[ToolCallItem]:
     return _load_jsonl(path)
 
 
-def _load_from_hf(limit: int | None) -> list[ToolCallItem]:
+def _load_from_hf(limit: int | None, categories: set[str] | None = None) -> list[ToolCallItem]:
     """Pull BFCL directly from Hugging Face repo files into our shape.
 
     BFCL is published as line-delimited ``.json`` files (not ``datasets`` splits)
@@ -213,6 +213,18 @@ def _load_from_hf(limit: int | None) -> list[ToolCallItem]:
     if not data_files:
         raise RuntimeError(f"Could not find paired BFCL data/answer files in {HF_DATASET}.")
 
+    if categories:
+        data_files = [
+            p for p in data_files
+            if p.removeprefix("BFCL_v3_").removesuffix(".json") in categories
+        ]
+        if not data_files:
+            raise RuntimeError(
+                f"No BFCL files match categories={categories}. "
+                f"Available example cats: simple, multiple, parallel, parallel_multiple, "
+                f"live_simple, live_multiple, live_parallel, live_parallel_multiple."
+            )
+
     items: list[ToolCallItem] = []
     for data_name in data_files:
         cat = data_name.removeprefix("BFCL_v3_").removesuffix(".json")
@@ -264,6 +276,7 @@ def load_toolcalling(
     source: str = "sample",
     eval_pct: int = 30,
     limit: int | None = None,
+    categories: set[str] | None = None,
 ) -> tuple[list[ToolCallItem], list[ToolCallItem]]:
     """Load tool-calling items and split into (trace_pool, eval_pool).
 
@@ -271,9 +284,11 @@ def load_toolcalling(
         source: ``sample`` | ``hf`` | a filesystem path to JSONL data.
         eval_pct: percent of items held out for evaluation (never trained on).
         limit: optional cap on total items (handy for quick smoke runs).
+        categories: optional set of BFCL categories to keep (hf source only),
+            e.g. {"parallel_multiple", "parallel"} for a harder eval.
     """
     if source == "hf":
-        items = _load_from_hf(limit)
+        items = _load_from_hf(limit, categories)
     elif source == "sample":
         items = _load_jsonl(SAMPLE_PATH)
     else:
