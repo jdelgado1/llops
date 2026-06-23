@@ -66,8 +66,10 @@ def run_eval_on_model(
     
     correct_count = 0
     failures = []
+    per_item_results = []  # Track per-item correctness
     
     for i, item in enumerate(eval_pool):
+        is_correct = False
         try:
             result = invoke_model(
                 deployment=deployment,
@@ -93,6 +95,8 @@ def run_eval_on_model(
         except Exception as e:
             logger.warning(f"  Item {i}: {e}")
             failures.append({"item_idx": i, "error": str(e)})
+        
+        per_item_results.append(is_correct)
     
     accuracy = (correct_count / len(eval_pool) * 100) if eval_pool else 0
     logger.info(f"✅ {model_name}: {accuracy:.1f}% AST accuracy ({correct_count}/{len(eval_pool)})")
@@ -104,6 +108,7 @@ def run_eval_on_model(
         "num_correct": correct_count,
         "num_total": len(eval_pool),
         "failures": failures,
+        "per_item_results": per_item_results,  # Per-item correctness: True/False for each item
     }
 
 
@@ -122,13 +127,13 @@ def test_fabric_export(
         for result in eval_results.values()
     }
     
-    # Build detail records
+    # Build detail records with per-item correctness
     detail_records = []
     for i in range(eval_pool_size):
         detail = {
             "eval_item_id": i,
             "ast_match_by_model": {
-                model_label: results.get("num_correct", 0) > 0
+                model_label: results["per_item_results"][i]
                 for model_label, results in eval_results.items()
             }
         }
@@ -147,6 +152,16 @@ def test_fabric_export(
     logger.info(f"✅ Exported to Fabric:")
     logger.info(f"   Summary: {export_paths['summary']}")
     logger.info(f"   Details: {export_paths['details']}")
+    
+    # Verify per-item distribution
+    for model_label in eval_results.keys():
+        true_count = sum(
+            1 for detail in detail_records
+            if detail["ast_match_by_model"].get(model_label, False)
+        )
+        false_count = eval_pool_size - true_count
+        pct = 100.0 * true_count / eval_pool_size if eval_pool_size > 0 else 0
+        logger.info(f"   {model_label}: {true_count} true, {false_count} false ({pct:.1f}% accuracy)")
     
     return export_paths
 

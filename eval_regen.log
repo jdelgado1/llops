@@ -1,0 +1,9 @@
+INFO: \u2705 Loaded eval pool: 64 items
+INFO: 
+============================================================
+INFO: STEP 1: Running 3-way eval (per-item tracking)
+INFO: ============================================================
+INFO: 
+\U0001f504 Running baseline (qwen3-32b.ft-e037e55c11e8415a9e09ed6527789e10-format-primer) on 64 items...
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
