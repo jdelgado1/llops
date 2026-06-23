@@ -90,12 +90,20 @@ class FabricExporter:
                      onelake://Fine Tune Demo/lh_llmops.Lakehouse/Files/...
         """
         if self.onelake_workspace:
-            # Strip the virtual prefix to get the path inside the file system
+            # Strip the virtual prefix to get the path inside the file system.
             # fabric_path looks like: onelake://<workspace>/<lakehouse>.Lakehouse/<rest>
-            # OneLake ADLS path inside the file system = <lakehouse>.Lakehouse/<rest>
-            relative = str(fabric_path).replace(
-                f"onelake://{self.onelake_workspace}/", ""
-            ).replace("\\", "/")
+            # NOTE: On Windows, Path() collapses "onelake://" to "onelake:\" and uses
+            # backslashes, so a naive prefix replace fails. Instead, normalize slashes
+            # and anchor on the "<lakehouse>.Lakehouse/" marker, which is the true root
+            # of the OneLake file-system path.
+            normalized = str(fabric_path).replace("\\", "/")
+            marker = f"{self.onelake_lakehouse}.Lakehouse/"
+            idx = normalized.find(marker)
+            if idx == -1:
+                raise ValueError(
+                    f"Could not locate lakehouse marker '{marker}' in path: {normalized}"
+                )
+            relative = normalized[idx:]
             fs = self._get_fs_client()
             dir_path = "/".join(relative.split("/")[:-1])
             fs.get_directory_client(dir_path).create_directory()
