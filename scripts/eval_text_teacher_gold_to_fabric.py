@@ -11,6 +11,7 @@ import json
 import re
 import sys
 import time
+import argparse
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -90,6 +91,16 @@ def invoke_text(client, deployment: str, prompt_messages: list[dict[str, str]]) 
 
 
 def main() -> None:
+    global RUN_NAME, BASE_DEPLOYMENT, STUDENT_DEPLOYMENT
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--run-name", default=RUN_NAME)
+    parser.add_argument("--baseline-deployment", default=BASE_DEPLOYMENT)
+    parser.add_argument("--student-deployment", default=STUDENT_DEPLOYMENT)
+    args = parser.parse_args()
+    RUN_NAME = args.run_name
+    BASE_DEPLOYMENT = args.baseline_deployment
+    STUDENT_DEPLOYMENT = args.student_deployment
+
     client = get_client(get_settings())
     rows = [json.loads(line) for line in EVAL.read_text(encoding="utf-8").splitlines() if line.strip()]
     source_rows = [json.loads(line) for line in SOURCE_EVAL.read_text(encoding="utf-8").splitlines() if line.strip()]
