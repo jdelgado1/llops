@@ -7,6 +7,7 @@ grounded answering lives in ``teacher.py``.
 from __future__ import annotations
 
 import re
+import os
 
 from azure.ai.projects import AIProjectClient
 from azure.identity import DefaultAzureCredential
@@ -38,9 +39,12 @@ def get_client(settings: Settings):
     """Return an OpenAI-compatible client bound to the Foundry project."""
     project = AIProjectClient(
         endpoint=settings.project_endpoint,
-        credential=DefaultAzureCredential(),
+        credential=DefaultAzureCredential(
+            managed_identity_client_id=os.environ.get("AZURE_CLIENT_ID") or None,
+            exclude_interactive_browser_credential=True,
+        ),
     )
-    return project.get_openai_client()
+    return project.get_openai_client().with_options(timeout=60)
 
 
 def answer_over_context(client, model: str, question: str, context: str) -> str:

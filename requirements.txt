@@ -4,8 +4,11 @@
 # (src/llmops/ast_check.py) so no heavyweight eval harness is required.
 azure-ai-projects>=1.0.0
 azure-identity>=1.17
+azure-storage-file-datalake>=12.15.0
 openai>=1.40
+requests>=2.32.0
 datasets>=2.19
+huggingface_hub>=0.23.0
 python-dotenv>=1.0
 
 # Optional, for pulling BFCL/ToolACE at scale (TOOLCALLING_SOURCE=hf):
