@@ -1,0 +1,64 @@
+flowchart LR
+  %% Dev3 LLMOps retraining loop
+
+  subgraph Foundry[Microsoft Foundry / Azure OpenAI]
+    T[gpt-5.4 teacher]
+    B[gpt-4.1-nano base]
+    S1[gpt-41-nano-student-v1]
+    S2[gpt-41-nano-student-v2]
+    FT[GlobalStandard fine-tuning job]
+    DEP[Serverless deployment]
+  end
+
+  subgraph LocalOrAca[Pipeline Runner\nLocal today / ACA Job target]
+    EVAL[Run held-out eval]
+    CONVERT[Convert Blu rows to schema-free text SFT\ntool_call JSON text]
+    SUBMIT[Upload JSONL to AOAI account endpoint\nSubmit fine-tune job]
+    WATCH[Watch job + deploy candidate]
+    GATE[Promotion gate\nPromote or reject]
+  end
+
+  subgraph Fabric[Microsoft Fabric / OneLake]
+    RAW[raw/foundry_evals/<run>/\neval_results.json\neval_details.jsonl\nmanifest.json]
+    TRACES[raw/foundry_traces/\ntraces_<run>_<timestamp>.jsonl]
+    EXPORTS[foundry_exports/<version>/\ntrain.jsonl\nmanifest.json]
+    REPORT[reporting/ + reporting_csv/\nexecutive dashboard tables]
+  end
+
+  subgraph Blu[Blu / Fabric Notebooks]
+    INGEST[Ingest eval_details]
+    SELECT[Select failures\nstudent=false AND teacher=true]
+    BUILD[Build next train.jsonl]
+    DASH[Power BI scorecard]
+  end
+
+  T -->|teacher-gold labels| EVAL
+  B -->|baseline calls| EVAL
+  S1 -->|student-v1 calls| EVAL
+  EVAL --> RAW
+  EVAL --> TRACES
+  RAW --> INGEST
+  INGEST --> SELECT
+  SELECT --> BUILD
+  BUILD --> EXPORTS
+  EXPORTS --> CONVERT
+  CONVERT --> SUBMIT
+  SUBMIT --> FT
+  FT --> WATCH
+  WATCH --> DEP
+  DEP --> S2
+  S2 -->|candidate calls| EVAL
+  RAW --> REPORT
+  REPORT --> DASH
+  EVAL --> GATE
+  GATE -->|reject if below threshold| REPORT
+  GATE -->|continue loop| EXPORTS
+
+  classDef model fill:#e8f2ff,stroke:#2563eb,color:#111827;
+  classDef runner fill:#ecfdf5,stroke:#059669,color:#111827;
+  classDef fabric fill:#fff7ed,stroke:#ea580c,color:#111827;
+  classDef human fill:#fdf2f8,stroke:#db2777,color:#111827;
+  class T,B,S1,S2,FT,DEP model;
+  class EVAL,CONVERT,SUBMIT,WATCH,GATE runner;
+  class RAW,TRACES,EXPORTS,REPORT fabric;
+  class INGEST,SELECT,BUILD,DASH human;
