@@ -1,0 +1,10 @@
+.git
+.venv
+.env
+__pycache__
+*.pyc
+.azure
+infra
+artifacts/*
+!artifacts/.retrain_loop_state.json
+*.log

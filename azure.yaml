@@ -1,0 +1,20 @@
+name: tmg-research-agent-llmops
+metadata:
+  template: tmg-research-agent-llmops@0.1.0
+infra:
+  provider: bicep
+services:
+  retrain-job:
+    project: .
+    host: containerapp
+    language: python
+    docker:
+      path: ./Dockerfile
+hooks:
+  postprovision:
+    posix:
+      shell: sh
+      run: echo "Provisioned ACA Job. Trigger manually with az containerapp job start."
+    windows:
+      shell: pwsh
+      run: Write-Host "Provisioned ACA Job. Trigger manually with az containerapp job start."

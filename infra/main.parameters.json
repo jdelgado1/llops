@@ -1,0 +1,18 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "name": { "value": "tmg-llmops" },
+    "location": { "value": "eastus" },
+    "foundryProjectEndpoint": { "value": "https://tunesefoundry.services.ai.azure.com/api/projects/proj-default" },
+    "foundryAoaiAccount": { "value": "TuneSEfoundry" },
+    "foundryResourceGroup": { "value": "demo-rg" },
+    "onelakeWorkspace": { "value": "Fine Tune Demo" },
+    "onelakeLakehouse": { "value": "lh_llmops" },
+    "baseFinetuneModel": { "value": "gpt-4.1-nano" },
+    "finetuneTrainingType": { "value": "GlobalStandard" },
+    "teacherModel": { "value": "gpt-5.4" },
+    "studentFinetunedDeployment": { "value": "gpt-41-nano-student-v1" },
+    "baselineDeployment": { "value": "gpt-41-nano-base" }
+  }
+}

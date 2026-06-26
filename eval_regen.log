@@ -1,0 +1,1987 @@
+INFO: \u2705 Loaded eval pool: 64 items
+INFO: 
+============================================================
+INFO: STEP 1: Running 3-way eval (per-item tracking)
+INFO: ============================================================
+INFO: 
+\U0001f504 Running baseline (qwen3-32b.ft-e037e55c11e8415a9e09ed6527789e10-format-primer) on 64 items...
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 0: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 1: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 2: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 3: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 4: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 5: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 6: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 7: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 8: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 9: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 10: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 11: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 12: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 13: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 14: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 15: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 16: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 17: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 18: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 19: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 20: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 21: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 22: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 23: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 24: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 25: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 26: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 27: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 28: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 29: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 30: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 31: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 32: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 33: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 34: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 35: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 36: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 37: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 38: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 39: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 40: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 41: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 42: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 43: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 44: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 45: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 46: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 47: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 48: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 49: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 50: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 51: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 52: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 53: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 54: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 55: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 56: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 57: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 58: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 59: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 60: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 61: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 62: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 63: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: \u2705 baseline: 0.0% AST accuracy (0/64)
+INFO: 
+\U0001f504 Running student (qwen3-32b.ft-9a839158f31e4424895271cc16059932-distill-toolcall) on 64 items...
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 0: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 1: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 2: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 3: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 4: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 5: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 6: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 7: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 8: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 9: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 10: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 11: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 12: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 13: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 14: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 15: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 16: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 17: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 18: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 19: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 20: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 21: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 22: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 23: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 24: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 25: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 26: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 27: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 28: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 29: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 30: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 31: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 32: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 33: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 34: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 35: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 36: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 37: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 38: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 39: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 40: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 41: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 42: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 43: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 44: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 45: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 46: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 47: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 48: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 49: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 50: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 51: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 52: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 53: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 54: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 55: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 56: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 57: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 58: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 59: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 60: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 61: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 62: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 63: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: \u2705 student: 0.0% AST accuracy (0/64)
+INFO: 
+\U0001f504 Running teacher (gpt-5.4) on 64 items...
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 0: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 1: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 2: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 3: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 4: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 5: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 6: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 7: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 8: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 9: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 10: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 11: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 12: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 13: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 14: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 15: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 16: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 17: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 18: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 19: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 20: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 21: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 22: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 23: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 24: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 25: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 26: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 27: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 28: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 29: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 30: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 31: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 32: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 33: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 34: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 35: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 36: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 37: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 38: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 39: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 40: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 41: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 42: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 43: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 44: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 45: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 46: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 47: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 48: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 49: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 50: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 51: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 52: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 53: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 54: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 55: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 56: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 57: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 58: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 59: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 60: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 61: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 62: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: HTTP Request: POST https://tunesefoundry.services.ai.azure.com/api/projects/proj-default/openai/v1/chat/completions "HTTP/1.1 400 BadRequest"
+WARNING:   Item 63: Error code: 400 - {'error': {'code': 'Tenant provided in token does not match resource token', 'message': 'Token tenant 2b17c1f8-c6a7-4715-9c7a-911c7e1c647c does not match resource tenant.'}}
+INFO: \u2705 teacher: 0.0% AST accuracy (0/64)
+INFO: 
+============================================================
+INFO: STEP 2: Building eval_details JSONL
+INFO: ============================================================
+INFO: 
+============================================================
+INFO: EVAL SUMMARY
+INFO: ============================================================
+INFO: baseline    :   0.00% (0/64)
+INFO: student     :   0.00% (0/64)
+INFO: teacher     :   0.00% (0/64)
+INFO: 
+============================================================
+INFO: STEP 3: Uploading to Fabric
+INFO: ============================================================
+INFO: 
+\U0001f504 Uploading to Fabric (Fine Tune Demo)...
+INFO: OneLake mode: workspace='Fine Tune Demo' lakehouse='lh_llmops'
+INFO: OneLake paths: onelake:\Fine Tune Demo\lh_llmops.Lakehouse\Files\llmops\raw\foundry_traces, onelake:\Fine Tune Demo\lh_llmops.Lakehouse\Files\llmops\raw\foundry_evals, onelake:\Fine Tune Demo\lh_llmops.Lakehouse\Files\llmops\foundry_exports
+INFO: No environment configuration found.
+INFO: ManagedIdentityCredential will use IMDS
+INFO: Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.3 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+No body was attached to the request
+INFO: DefaultAzureCredential acquired a token from AzureCliCredential
+INFO: Request URL: 'https://onelake.dfs.fabric.microsoft.com/Fine%20Tune%20Demo/llmops/raw/foundry_evals/baseline-vs-student-corrected?resource=REDACTED'
+Request method: 'PUT'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/json'
+    'User-Agent': 'azsdk-python-storage-dfs/12.25.0 Python/3.13.14 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '36ff1e14-6f17-11f1-94fc-e8a72f87371c'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+INFO: Response status: 400
+Response headers:
+    'Content-Type': 'application/json'
+    'Date': 'Tue, 23 Jun 2026 15:21:35 GMT'
+    'Server': 'Kestrel'
+    'Access-Control-Allow-Headers': 'REDACTED'
+    'Access-Control-Allow-Methods': 'REDACTED'
+    'Access-Control-Allow-Origin': 'REDACTED'
+    'Access-Control-Expose-Headers': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+    'Strict-Transport-Security': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'x-ms-root-activity-id': 'REDACTED'
+ERROR: \u274c Fabric upload failed: (BadRequest) Request Failed with Required item type extension is missing in the item name. Expected format {itemname}.{itemtype} e.g. mylakehouse.lakehouse
+Code: BadRequest
+Message: Request Failed with Required item type extension is missing in the item name. Expected format {itemname}.{itemtype} e.g. mylakehouse.lakehouse

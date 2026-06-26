@@ -1,12 +1,12 @@
 # Project Context & Handoff
 
 > **Read this first.** This file is the single source of truth for the TMG
-> Research Agent LLMOps demo. It captures *what we're building, why, every
+> Tool-Calling Agent LLMOps demo. It captures *what we're building, why, every
 > decision we made (and reversed), and how to continue.* If you're an AI agent
 > or a teammate picking this up cold, read this top-to-bottom before touching
 > anything else.
 
-Last updated: 2026-06-17 · Owner: **Jose Delgado**
+Last updated: 2026-06-19 · Owner: **Jose Delgado**
 
 ---
 
@@ -14,23 +14,27 @@ Last updated: 2026-06-17 · Owner: **Jose Delgado**
 
 We're building a **demo of the full LLM lifecycle on Azure / Microsoft Foundry**
 for an internal session on **6/26**. The story: **"model choice is a lifecycle
-decision."** Start with an expensive **frontier model** (Claude Opus / GPT-5.5),
-use it to produce gold-standard answers, then **distill a cheaper, smaller model**
-that matches its quality on a narrow task — and **continuously retrain** it as the
-world drifts. The task is a **Telco/Media/Gaming (TMG) grounded research agent**
-that answers questions using **live web search (Microsoft Web IQ, via the
-Foundry Web Search tool)**. Success is
-measured by **one simple number** (an "Answer Quality Score") tracked over time.
+decision."** Start with an expensive **frontier model** (GPT-5.4), use it to
+produce gold-standard **tool calls**, then **distill a cheaper, smaller model**
+(Qwen3-32B) that **matches or beats** it at the task — measured by **one
+objective number (BFCL-style AST accuracy)** — and **continuously retrain** it as
+tools/usage drift. The task is a **Telco/Media/Gaming (TMG) operations & support
+agent** whose job is **tool/function calling**: given a request + tool schemas
+(including a `web_search` tool), emit the **correct function call (name +
+arguments)**. Training = **Foundry managed SFT** (upload a JSONL, **no GPU**);
+serving = **serverless**; production traces flow **Foundry Tracing → Microsoft
+Fabric** as the golden/drift set of record.
 
 ---
 
 ## 2. Who's Who
 
-- **Jose (you):** owns the scenario, golden dataset + eval metric, and the
-  fine-tune/distillation loop. (This repo.)
-- **Nikhil Gopal:** lead / presenter. Set the direction. Wants **simple,
-  legible** concepts for a mixed infra/data audience.
-- **Blu Gotlieb:** owns the database, Event Hub, and dashboards (drift &
+- **Jose (you):** owns the scenario, the objective metric, the trace→SFT→eval
+  pipeline, and the fine-tune/distillation loop. (This repo.)
+- **Nikhil Gopal:** lead / presenter. Set the direction ("model choice is a
+  lifecycle decision"). Wants **simple, legible** concepts for a mixed
+  infra/data audience.
+- **Blu Gotlieb:** owns the database, Fabric/Eventhouse, and dashboards (drift &
   performance over time, likely Power BI).
 - **Anthony Nevico:** stakeholder; gives feedback before the session.
 
@@ -38,23 +42,28 @@ measured by **one simple number** (an "Answer Quality Score") tracked over time.
 
 ## 3. What We're Actually Doing (Plain English)
 
-1. Take **one Hugging Face Q&A dataset** (questions + correct answers).
-2. Split it: a **training pile** and a hidden **golden test pile**.
-3. Have the **frontier model** answer the questions (with live web search
-   grounding via WebIQ) →
-   these are the gold-standard reference answers.
-4. **Score the frontier model** on the golden pile → that's the quality bar
-   (one number, e.g. 94%).
-5. **Score a cheap model** → it does worse (e.g. 78%).
-6. **Distill / fine-tune the cheap model** on the training pile → it gets close
-   to the frontier model (e.g. 92%) but far cheaper + faster. **That's the win.**
-7. **Schedule automatic retraining** and **store every score in a database**
-   (with Blu) so we can chart quality over time.
-8. **Drift story:** as the world changes (news, new topics), the model's score
-   drops → auto-retrain brings it back up. That's *why* you keep retraining.
+1. Take a **tool-calling dataset** (a user request + the available tool schemas
+   + the correct call). We ship a bundled TMG ops/support set; ToolACE/BFCL can
+   be swapped in at scale.
+2. Split it: a **training pile** and a hidden **held-out test pile** (by id, so
+   no leakage).
+3. Have the **frontier model (GPT-5.4)** answer the training prompts by calling
+   tools → keep **only the calls that are objectively correct** (rejection
+   sampling). These become the gold training traces.
+4. **Score the frontier model** on the held-out pile → that's the quality bar
+   (one number: **AST accuracy**, e.g. 88%).
+5. **Score the base small model** → it does worse (e.g. 55%).
+6. **Distill** the small model on the correct traces (Foundry managed SFT) → it
+   **matches or beats** the frontier model (e.g. 90%) but far cheaper + faster.
+   **That's the win.**
+7. **Push production traces** from Foundry Tracing into **Microsoft Fabric**,
+   schedule retraining, and store scores so we can chart quality over time.
+8. **Drift story:** tools/schemas/usage change → AST accuracy drops →
+   auto-retrain on fresh correct traces brings it back up.
 
-> The metric is the scoreboard: **one accuracy/quality percentage** that goes up
-> as the model improves. Keep it that simple.
+> The metric is the scoreboard: **one AST accuracy percentage** that goes up as
+> the model improves. It's **objective** (no LLM-judge bias), so a small model
+> beating a large one is unambiguous. Keep it that simple.
 
 ---
 
@@ -62,91 +71,56 @@ measured by **one simple number** (an "Answer Quality Score") tracked over time.
 
 | # | Decision | Why | Status |
 | --- | --- | --- | --- |
-| D1 | **New repo**, separate from the old Nebius function-calling repo | The old repo is a different stack (Nebius/SGLang/Axolotl) and narrative; a clean Azure/Foundry repo tells a clean story | ✅ Locked |
-| D2 | **Distillation** as the primary customization method (not from-scratch fine-tune) | The scenario already produces frontier "teacher" outputs; Foundry has native distillation; less labeling than DPO/RFT; on-message for "cohesive Azure" | ✅ Primary (DPO/RFT mentioned as alternatives in the talk) |
-| D3 | **No full fine-tuning, ever** | Carried constraint from prior project. Only **distillation (SFT)** or **PEFT (LoRA/QLoRA)** | ✅ Hard rule |
-| D4 | Scenario = **TMG grounded research agent** (Telco/Media/Gaming) | Nikhil wanted a TMG-relevant customer use case; research + live grounding gives the strong drift story | ✅ Locked |
-| D5 | **Web search grounding** (Microsoft Web IQ / Foundry Web Search tool), not classification, not tool-calling, as the task | Matches Nikhil's *written agenda* (WebIQ research agent). **WebIQ is now GA** (Build 2026) and verified working with GPT-5.4 on 2026-06-17 → it's the grounding path, not a fallback | ✅ Locked |
-| D6 | **One simple headline metric** ("Answer Quality Score") | Nikhil's *verbal* guidance: audience is infra/data people, "simple is better." Richer metrics exist under the hood but we demo one number | ✅ Locked |
-| D7 | **Evaluate on public HF benchmarks; train only on frontier + web-search (WebIQ) traces** | Keeps the headline metric honest (no test-set leakage); benchmarks give a reproducible scoreboard, teacher traces give the gold-standard training target | ✅ Locked |
-| D8 | Datasets = **`aialt/RetrievalQA`** (frozen regression) + **FreshQA** dated snapshots (temporal drift) + **RealTimeQA** mirror (optional replayable weekly stream) + **`OpenResearcher/web-bench`** (hard ceiling). Training corpus = frontier + web-search (WebIQ) traces only | Verified live (2026-06-17): RetrievalQA (MIT; `param_knowledge_answerable` flag makes grounding *necessary*), FreshQA snapshots give *real* drift, web-bench (Apache-2.0) is the hard ceiling. **Replaces FinanceBench.** DailyQA dropped (does not exist on HF) | ✅ Locked |
-| D9 | **Distill synthesis/citation over provided context, NOT facts** | Retrieval stays live via web search (WebIQ), so drift is *distribution/skill* drift (new entities, false premises, query-mix shift), not fact-staleness — this answers "why retrain if it searches live?" | ✅ Locked |
-| D10 | **Grounding = Foundry Web Search tool (Microsoft Web IQ), not classic "Grounding with Bing Search"** | Verified live 2026-06-17: Web Search is GA, needs no extra Bing resource/roles, and supports GPT-5.4 (classic Bing grounding excluded gpt-5 and retires 2027-03-31). Hybrid use: live search for teacher traces + drift slice; RetrievalQA frozen context for reproducible regression eval | ✅ Locked |
+| D1 | **New repo**, separate from the old Nebius function-calling repo | A clean Azure/Foundry repo tells a clean story | ✅ Locked |
+| D2 | **Distillation (SFT)** as the customization method | The scenario produces frontier "teacher" tool calls; Foundry has native managed SFT; less labeling than DPO/RFT | ✅ Primary |
+| D3 | **No full fine-tuning, ever** | Carried constraint. **Foundry managed SFT** only (no GPU) | ✅ Hard rule |
+| D4 | Task = **tool/function calling** for a TMG ops/support agent | The only task that reliably shows **smaller beats larger** on an **objective** metric (already proven in prior work: a Qwen3 14B beat GPT-5.4 on BFCL-Python). Web search is honored via a `web_search` tool in the toolset, not by switching the task. **Reverses old D4/D5 (grounded research) — see reversed decisions.** | ✅ Locked |
+| D5 | Metric = **BFCL-style AST accuracy** (right function + correct args) | One **objective** number — no LLM-judge bias, discriminates models cleanly. Implemented in-repo (`ast_check.py`) | ✅ Locked |
+| D6 | Training = **Foundry managed SFT** on **Qwen3-32B**, serverless deploy, **no GPU** | The sub has **zero GPU quota**; fine-tuned qwen deploys **serverless** (proven). Qwen3-32B is the **only Foundry-fine-tunable** Qwen size. Note: its **base inference is unavailable** (fine-tune-only), so the "before" baseline is an optional proxy (see open questions) | ✅ Locked |
+| D7 | **Train on rejection-sampled teacher traces; evaluate on a held-out, disjoint pool** | Keeps the headline honest (no leakage). Filtering teacher calls to AST-correct is what lets the student match/exceed the teacher | ✅ Locked |
+| D8 | Data = bundled **TMG tool-calling sample** (offline, default) + **BFCL/ToolACE** at scale (`TOOLCALLING_SOURCE`) | Runs anywhere now; scales later. Train prompts (ToolACE-style) and eval (BFCL-style) stay separable | ✅ Locked |
+| D9 | **Production traces: Foundry Tracing → Microsoft Fabric** (golden/drift of record) | Fabric is the data plane of record (Blu's domain); closes the lifecycle loop. Tenant-portable via env | ✅ Locked |
 
 ### Decisions we REVERSED (don't re-litigate)
 
-- ❌ **Classification task** (e.g., support-intent classification on Banking77).
-  Briefly proposed because Nikhil's *verbal* note praised simple accuracy
-  metrics. **Reversed** — his *written agenda* clearly centers a **web-search
-  research agent**. We kept the "simple metric" idea but applied it to the
-  research task (one quality score). The word "classification" should not
-  reappear as the task.
-- ❌ **Pure trace-built golden set with no HF dataset.** Replaced by the
-  **benchmarks-for-eval + traces-for-train** split (D7).
-- ❌ **`PatronusAI/financebench` as the dataset.** Originally proposed (old D8),
-  but it's QA over **static PDF filings** → live web search would be cosmetic and
-  there's **no real drift** to retrain against. **Reversed (2026-06-17)** in favor
-  of the layered benchmark stack (new D8). Don't reintroduce FinanceBench.
-- ❌ **Groundedness/citation multi-metric suite as the headline.** Too
-  data-science-y for the audience; demoted to "full version under the hood"
-  behind the single Answer Quality Score (D6).
+- ❌ **Grounded research-QA as the task** (RetrievalQA / FreshQA / web-bench).
+  Was the locked direction through 2026-06-17. **Reversed 2026-06-19** after the
+  pipeline was built and run: grounded QA **saturated** — frontier = base =
+  distilled ≈ **90%** in frozen-context, and distillation added **0 correctness
+  lift by design** (it teaches grounded synthesis, not facts). It could not show
+  "smaller beats larger." Replaced by **tool calling** (D4), which does. The
+  grounded-QA code is **kept in this repo as the evidence** for *why* we pivoted
+  (see §6 Legacy).
+- ❌ **LLM-judge "Answer Quality Score" as the headline.** It was subject to
+  judge bias (judge = teacher grading its own student). Replaced by **objective
+  AST accuracy** (D5).
+- ❌ **GPU Managed Compute + LoRA/QLoRA** as the training path. The subscription
+  has **zero GPU quota**. Replaced by **Foundry managed SFT** (D6). No
+  Axolotl / SGLang / GPU anywhere.
+- ❌ **Classification task** (Banking77, etc.). Long-reversed; do not reintroduce.
 
 ---
 
 ## 5. The Source-of-Truth Context (from Nikhil)
 
-### 5a. Session agenda (Nikhil's written draft)
+The original session agenda and Nikhil's verbal guidance live in
+[`context/teams-chat.md`](context/teams-chat.md) (**never edit that file**). The
+thesis and lifecycle are unchanged; only the **task** changed from grounded QA to
+tool calling, and the **metric** from a fuzzy quality score to objective AST
+accuracy — both to make "smaller beats larger" demonstrable.
 
-| Time | Segment | Purpose |
-| --- | --- | --- |
-| 0–5 | Goal framing | Model choice is a lifecycle decision: quality, latency, cost, safety, drift, retraining readiness |
-| 5–10 | Start with a frontier model | Claude Opus / GPT-5.5-class baseline; collect traces |
-| 10–18 | Use case: WebIQ research agent | Live web/news grounding → input distribution drifts over time |
-| 18–30 | Golden dataset creation | Capture prompts, retrieval context, completions, citations, human ratings, failure labels, latency, token cost |
-| 30–42 | LLMOps evaluation pipeline | Continuous + batch evals in Foundry: groundedness, task adherence, fluency, safety, citation quality, latency, cost |
-| 42–52 | Automatic retraining / customization | Foundry: SFT/distillation, DPO, or RFT with graders |
-| 52–58 | Architecture walkthrough | Foundry hosted agents, Fabric storage, checkpoints, eval results, drift monitoring |
-| 58–60 | Decisions & next steps | Trace capture, golden set, eval gates, retraining trigger, promotion criteria |
-
-### 5b. Nikhil's verbal guidance (paraphrased from transcript)
-
-- Find a **representative golden dataset** for a **hypothetical customer
-  scenario** where they'd generate lots of production data with a big frontier
-  model (Opus / GPT-5.5).
-- **Hugging Face** has chatbot/QA datasets that could be representative.
-- Define a **metric to quantify the model's progress** over time. Examples:
-  *"how often does it use the right tool"* or *"% of correct category"* — or an
-  **amalgamation of metrics combined into one coefficient.**
-- **Simple is better** — audience has infra and data people who aren't
-  LLM-native.
-- Flow: golden set → eval frontier vs cheap model → **fine-tune the cheap model
-  and make it good** → schedule automatic training jobs → store eval results in
-  a DB with Blu → track progress over time.
-- **Why retrain:** users constantly web-searching → input drifts. WebIQ is a
-  great example of this.
-
-### 5c. Important caveats Nikhil gave
-
-- He **applied for WebIQ + RL-environment preview access**. If not approved,
-  **fall back to normal Bing grounding** + another training method. → We default
-  to **Bing grounding** now.
-- *"For the purposes of this demo the exact implementation details are less
-  crucial than the concepts."*
-- *"We are by no means married to this agenda."* → The plan is flexible; concepts
-  win over specifics.
-
-### 5d. Target architecture (Nikhil's)
+### Target architecture (Nikhil's, still current)
 
 | Layer | Service |
 | --- | --- |
 | AI provider | Microsoft Foundry |
-| Agent runtime | Foundry Hosted Agents (+ Web Search tool / Microsoft Web IQ) |
-| Evals & tracing | Foundry Tracing |
+| Agent runtime | Foundry Hosted Agents (toolset incl. `web_search` / Web IQ) |
+| Evals & tracing | Foundry Tracing + the in-repo AST eval |
+| Model customization | **Foundry managed SFT** on Qwen3-32B (serverless, no GPU) |
+| Golden / drift dataset | **Microsoft Fabric** (Foundry Tracing → OneLake) |
 | Checkpoint storage | Azure Blob Storage |
-| Eval results & prompt/completions | Azure SQL DB |
-| Persistent agent memory | Foundry IQ / Cosmos DB |
+| Eval results & completions | Azure SQL DB |
 | Failures / latency / drift signals | Eventhouse |
-| Golden dataset | Microsoft Fabric |
 | Dashboards | Power BI |
 
 ---
@@ -155,117 +129,137 @@ measured by **one simple number** (an "Answer Quality Score") tracked over time.
 
 ```
 tmg-research-agent-llmops/
-├── README.md                         # Overview, thesis, stack, one-number metric, HF seed dataset
+├── README.md                         # Overview, thesis, stack, the one objective metric
 ├── CONTEXT.md                        # ← this file
-└── docs/
-    ├── scenario.md                   # Task #1 — the mock TMG research-agent scenario
-    ├── golden-dataset-and-eval.md    # Task #2 — HF-seed + traces golden set, single quality metric, dataset-picking guide
-    └── distillation-loop.md          # Tasks #3–5 — distillation loop + Azure architecture
+├── .env.example                      # config (3 model slots + Fabric + data source)
+├── requirements.txt
+├── data/
+│   └── toolcalling_sample.jsonl      # bundled offline TMG tool-calling set (BFCL-style)
+├── docs/
+│   ├── scenario.md                   # the TMG ops/support tool-calling scenario
+│   ├── golden-dataset-and-eval.md    # data + AST metric + train/eval split
+│   ├── distillation-loop.md          # the Foundry-native loop + Azure/Fabric architecture
+│   ├── handoff-option-a.md           # the Option A spec (the "why")
+│   └── build-plan.md                 # actionable build plan + tenant portability + Fabric push
+├── src/llmops/
+│   ├── config.py                     # env-driven Settings (3 models, Fabric, data source)
+│   ├── ast_check.py                  # ★ the objective metric (BFCL-style AST accuracy)
+│   ├── tooldata.py                   # ★ tool-calling loader + by-id train/eval split
+│   ├── tool_models.py                # ★ call a deployment with tools, parse calls (GPT + qwen)
+│   ├── tool_traces.py                # ★ teacher → tool calls → AST-validate → keep correct
+│   ├── tool_sft.py                   # ★ traces → function-calling SFT JSONL (+ validator)
+│   ├── tool_eval.py                  # ★ 3-way AST eval + cost/latency
+│   ├── fabric.py                     # ★ push accepted traces to Microsoft Fabric (OneLake)
+│   ├── models.py                     # shared OpenAI-client helper
+│   └── (legacy) data.py, teacher.py, traces.py, sft_dataset.py, evaluate.py,
+│       distill_eval.py, judge.py     # grounded-QA pipeline — kept as the "why we pivoted" evidence
+└── scripts/
+    ├── smoke_toolcalling.py          # prove tool calling + AST end-to-end
+    ├── gen_tool_traces.py            # generate rejection-sampled teacher traces
+    ├── build_tool_sft.py             # build the function-calling SFT dataset
+    ├── run_tool_eval.py              # run the 3-way AST eval
+    ├── push_to_fabric.py             # push accepted traces into Fabric
+    └── (legacy) smoke_grounding.py, gen_traces.py, build_sft.py,
+        run_baseline.py, run_distill_eval.py
 ```
 
-Everything is **design docs only** — no code yet. All three docs reflect the
-locked decisions above (research agent + Bing + one metric + HF seed).
+**★ = the Option A (tool-calling) pipeline — the primary path.** The legacy
+grounded-QA modules are retained, unmodified, as the empirical evidence behind
+the pivot (saturation + 0 distillation lift).
 
 ---
 
-## 7. Jose's Assigned Tasks (Nikhil's "By Wed" list)
+## 7. Jose's Assigned Tasks
 
-1. ✅ (drafted) Define the **mock scenario** — `docs/scenario.md`.
-2. ✅ (drafted) Identify the **golden dataset + eval metric** —
-   `docs/golden-dataset-and-eval.md`.
-3. ✅ Identify **data to distill on** — frontier+Bing teacher traces only;
-   benchmarks (RetrievalQA/FreshQA/RealTimeQA/web-bench) are eval-only (D8).
-4. ⬜ Build the **distillation loop** (Foundry-native; fallback GPU + LoRA/QLoRA).
-5. ⬜ **Schedule automatic retraining** + store eval results in DB (with Blu).
+1. ✅ Define the **scenario** — `docs/scenario.md` (TMG ops/support tool agent).
+2. ✅ Define the **objective metric + data** — `docs/golden-dataset-and-eval.md`
+   (AST accuracy; bundled tool-calling set + BFCL/ToolACE at scale).
+3. ✅ Build the **trace → SFT → eval** pipeline (this repo, `src/llmops/*` ★).
+4. ⬜ Run it on Foundry: baselines → distill (managed SFT) → 3-way AST table →
+   cost/latency.
+5. ⬜ Wire **Foundry Tracing → Fabric** + scheduled retraining + drift demo
+   (with Blu).
 
 ---
 
 ## 8. Open Questions to Resolve Next
 
-- [x] ~~Confirm the HF dataset~~ — **Resolved (2026-06-17):** layered benchmark
-      stack locked (D8); FinanceBench dropped.
-- [x] ~~Decide how to simulate drift~~ — **Resolved:** use **FreshQA** dated
-      snapshots for *real* drift (no faking); RealTimeQA mirror as optional
-      replayable weekly stream.
-- [ ] Standardize which **RealTimeQA mirror** to use (canonical repo is gated).
-- [ ] Choose the **frontier teacher** model (Claude Opus vs GPT-5.5-class).
-- [ ] Choose the **student** model (small, Foundry-deployable, PEFT-friendly).
-- [ ] Define the exact **Answer Quality Score** (groundedness %? LLM-judge
-      correctness %? blended coefficient?) and the **promotion gate** thresholds.
-- [ ] Confirm Foundry distillation stays within **SFT/PEFT** (not full-param).
-- [ ] Align with **Blu** on the DB schema for storing eval results over time.
+- [ ] Confirm the *deployed* qwen (fine-tuned or proxy) exposes the
+      **function-calling API** (`tools` param → emit `tool_calls`). Base Qwen3-32B
+      inference is **unavailable**, so verify on a fine-tuned/proxy deployment
+      with `smoke_toolcalling.py`.
+- [ ] `ε` for the promotion gate (set after baseline AST numbers exist).
+- [ ] **Baseline ("before") strategy:** base Qwen3-32B can't be served, so either
+      (a) omit the baseline column (headline = teacher vs distilled), or (b) use a
+      **format-primer** fine-tune (generic, off-distribution tool calls) as a
+      near-base proxy. Lead with (b) if we want the before→after drama.
+- [ ] Scale data source: bundled sample (now) → ToolACE/BFCL via
+      `TOOLCALLING_SOURCE` for a real SFT run.
+- [ ] Align with **Blu** on the Fabric table schema + Eventhouse drift signals.
 
 ---
 
 ## 9. Hard Rules / Guardrails
 
-- **No full fine-tuning.** Distillation (SFT) or PEFT (LoRA/QLoRA) only.
-- **Task = grounded research via the Web Search tool (WebIQ)**, not classification, not tool-calling.
-- **Evaluate on benchmarks, train on traces.** Never train on eval/regression
-  rows (no test-set leakage). Split fresh questions **by question** into a
-  trace-generation pool vs a held-out eval pool; the frozen regression set is
-  never trained on.
-- **Distill synthesis/citation over context, not facts.** Retrieval stays live;
-  drift is distribution drift, not fact-staleness.
-- **Demo one simple metric.** Don't lead with a multi-metric dashboard.
-- **Keep quality (accuracy) and performance (latency/cost) as separate
-  numbers.** Don't conflate.
+- **No full fine-tuning.** **Foundry managed SFT** distillation only (no GPU).
+- **Task = tool/function calling**, scored by **one objective metric (AST
+  accuracy)**. Don't reintroduce grounded-QA-as-the-task, classification, or a
+  fuzzy LLM-judge headline.
+- **Train on rejection-sampled teacher traces; evaluate on a disjoint held-out
+  pool.** Never train on eval items (split is deterministic by id).
+- **Keep quality (AST %) and performance (latency/tokens) as separate numbers.**
+- **Production traces of record live in Fabric** (Foundry Tracing → OneLake).
 - Concepts > implementation details (Nikhil's words). Don't over-engineer.
 
 ---
 
 ## 10. Prompt to Continue This Work
 
-Paste the following into a new chat (with this repo open) to pick up exactly
-where we left off:
-
 ```text
 You are helping me (Jose) build an Azure / Microsoft Foundry demo of the full
 LLM lifecycle for an internal session on 6/26. Before doing anything, read
-CONTEXT.md in this repo end-to-end — it has the full decision history, the
-locked direction, and open questions. Treat its "Key Decisions" and "Hard Rules"
-as authoritative and do NOT re-litigate the reversed decisions (no
-classification task, no full fine-tuning, demo only ONE simple metric).
+CONTEXT.md end-to-end — it has the full decision history, the locked direction,
+and open questions. Treat "Key Decisions" and "Hard Rules" as authoritative and
+do NOT re-litigate reversed decisions (no grounded-QA-as-the-task, no
+classification, no GPU/LoRA, no LLM-judge headline, no full fine-tuning).
 
-Current locked direction: a Telco/Media/Gaming (TMG)-themed grounded **web
-research agent** that answers questions using the **Web Search tool (Microsoft
-Web IQ)** — now GA in Foundry and verified working with GPT-5.4. We **evaluate on
-public HF benchmarks but train
-only on frontier + web-search (WebIQ) teacher traces** (no test-set leakage). The benchmark
-stack is layered: `aialt/RetrievalQA` (frozen regression), FreshQA dated
-snapshots (temporal drift), a RealTimeQA mirror (optional weekly stream), and
-`OpenResearcher/web-bench` (hard ceiling). A frontier model (Opus / GPT-5.5)
-produces gold-standard traces; we **distill** a cheaper model to match it,
-measured by a single "Answer Quality Score," and continuously retrain as the data
-drifts. We distill **synthesis/citation over context, not facts** (retrieval
-stays live), so drift = distribution drift.
+Locked direction (Option A): a Telco/Media/Gaming (TMG) ops/support agent whose
+task is TOOL/FUNCTION CALLING. A frontier teacher (GPT-5.4) produces tool calls;
+we rejection-sample to AST-correct ones and DISTILL a small student (Qwen3-32B)
+via Foundry MANAGED SFT (JSONL upload, no GPU, serverless deploy). The single
+headline metric is BFCL-style AST accuracy (objective). We prove distilled ≥
+frontier ≫ base, at lower cost/latency. Production traces flow Foundry Tracing →
+Microsoft Fabric. The pipeline lives in src/llmops/*: ast_check, tooldata,
+tool_models, tool_traces, tool_sft, tool_eval, fabric.
 
 My next task is: <PICK ONE — e.g.
-  - "pick the frontier teacher + student models deployable in my Foundry project", or
-  - "design the exact Answer Quality Score + promotion-gate thresholds", or
-  - "scaffold the Foundry distillation loop (plan A) with a GPU LoRA/QLoRA fallback (plan B)", or
-  - "write the Python to load RetrievalQA + FreshQA, split train/held-out, and run a frontier-vs-cheap-model baseline eval">.
+  - "run smoke_toolcalling against the base qwen to confirm it emits tool_calls", or
+  - "generate teacher traces at scale from ToolACE and build the SFT JSONL", or
+  - "run the 3-way AST eval after I deploy the distilled qwen", or
+  - "wire the Foundry Tracing → Fabric push and the drift/retrain demo">.
 
-Work in this repo. Keep it simple and legible for an infra/data audience. Ask me
-clarifying questions before writing significant code, and update CONTEXT.md and
-the docs as decisions get made.
+Work in this repo. Keep it simple and legible for an infra/data audience. Update
+CONTEXT.md and the docs as decisions get made.
 ```
 
 ---
 
 ## 11. Glossary (for non-LLM-native teammates)
 
-- **Frontier model:** the big, expensive, top-tier model (Claude Opus, GPT-5.5).
-- **Distillation:** teach a small model to copy a big model's answers.
-- **PEFT / LoRA / QLoRA:** cheap ways to fine-tune that only adjust a small set
-  of extra weights (not the whole model).
-- **Golden dataset:** the trusted "answer key" we grade models against.
-- **Trace:** a logged record of a real model interaction (question + answer +
-  context). We don't need real production traces for the demo — the HF dataset
-  stands in.
-- **Grounding / web search (WebIQ):** the model searches the live web and bases its
-  answer on what it finds.
-- **Drift:** the world changes, so yesterday's good model gets worse over time.
-- **Promotion gate:** the pass/fail rules a new model must clear before it
-  replaces the current one.
-```
+- **Frontier model:** the big, expensive, top-tier model (GPT-5.4 here).
+- **Tool / function calling:** instead of writing prose, the model emits a
+  structured **call** — a function name + JSON arguments — that an app executes
+  (e.g. `create_support_ticket(customer_id="CU-9012", priority="high")`).
+- **AST accuracy:** the objective metric — is the predicted call the *right
+  function with the right arguments*? (BFCL methodology.) One number, no judge.
+- **Rejection sampling:** keep only the teacher's calls that are objectively
+  correct; train on those. This is what lets the student match/beat the teacher.
+- **Distillation / SFT:** teach a small model to copy a big model's (correct)
+  calls. We use **Foundry managed SFT** — upload a JSONL, no GPU.
+- **Serverless deploy:** a fine-tuned model served pay-per-token with no GPU
+  capacity to reserve.
+- **Golden / drift dataset:** the trusted set of correct traces (in Fabric) we
+  retrain on and grade against; "drift" = the world/tools change, so the score
+  drops until we retrain.
+- **Promotion gate:** the pass/fail rules a new model must clear (AST ≥ frontier
+  − ε, cheaper, faster, safety pass) before it replaces the current one.

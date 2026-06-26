@@ -15,7 +15,19 @@ load_dotenv()
 
 @dataclass(frozen=True)
 class Settings:
-    """Resolved runtime settings for the distillation loop."""
+    """Resolved runtime settings for the tool-calling distillation loop.
+
+    Three model slots drive the headline 3-way AST comparison:
+      - ``teacher_model``                 frontier teacher (GPT-5.4) — quality bar
+      - ``baseline_deployment``           OPTIONAL "before" proxy. Base Qwen3-32B
+                                          inference is unavailable on Foundry, so
+                                          this is an off-task / format-primer
+                                          fine-tune (or left unset).
+      - ``student_finetuned_deployment``  distilled student (Qwen3-32B) — the "after"
+
+    ``student_model`` is retained as a cheap reference deployment. Fabric fields
+    drive the production trace push (Foundry Tracing -> Microsoft Fabric).
+    """
 
     project_endpoint: str
     teacher_model: str
@@ -23,6 +35,11 @@ class Settings:
     judge_model: str
     student_finetuned_deployment: str | None
     baseline_deployment: str | None
+    base_finetune_model: str
+    finetune_training_type: str | None
+    toolcalling_source: str
+    fabric_workspace_id: str | None
+    fabric_lakehouse: str | None
     websearch_country: str
     websearch_city: str
     websearch_region: str
@@ -42,6 +59,16 @@ def get_settings() -> Settings:
         judge_model=os.environ.get("JUDGE_MODEL", "gpt-5.4"),
         student_finetuned_deployment=os.environ.get("STUDENT_FINETUNED_DEPLOYMENT") or None,
         baseline_deployment=os.environ.get("BASELINE_DEPLOYMENT") or None,
+        # Base model for fine-tuning. gpt-4.1-nano is the smallest Azure OpenAI
+        # model that supports CONTINUOUS fine-tuning (a fine-tuned model can be
+        # the base of the next job) — unlike the serverless Qwen/Phi/OSS models.
+        base_finetune_model=os.environ.get("BASE_FINETUNE_MODEL", "gpt-4.1-nano"),
+        # Azure OpenAI fine-tune training type. gpt-4.1-nano requires "Global"
+        # (its capability is globalFineTune; "Standard" is rejected with HTTP 400).
+        finetune_training_type=os.environ.get("FINETUNE_TRAINING_TYPE") or None,
+        toolcalling_source=os.environ.get("TOOLCALLING_SOURCE", "sample"),
+        fabric_workspace_id=os.environ.get("FABRIC_WORKSPACE_ID") or None,
+        fabric_lakehouse=os.environ.get("FABRIC_LAKEHOUSE") or None,
         websearch_country=os.environ.get("WEBSEARCH_COUNTRY", "US"),
         websearch_city=os.environ.get("WEBSEARCH_CITY", "New York"),
         websearch_region=os.environ.get("WEBSEARCH_REGION", "NY"),

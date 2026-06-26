@@ -7,6 +7,7 @@ grounded answering lives in ``teacher.py``.
 from __future__ import annotations
 
 import re
+import os
 
 from azure.ai.projects import AIProjectClient
 from azure.identity import DefaultAzureCredential
@@ -38,9 +39,12 @@ def get_client(settings: Settings):
     """Return an OpenAI-compatible client bound to the Foundry project."""
     project = AIProjectClient(
         endpoint=settings.project_endpoint,
-        credential=DefaultAzureCredential(),
+        credential=DefaultAzureCredential(
+            managed_identity_client_id=os.environ.get("AZURE_CLIENT_ID") or None,
+            exclude_interactive_browser_credential=True,
+        ),
     )
-    return project.get_openai_client()
+    return project.get_openai_client().with_options(timeout=60)
 
 
 def answer_over_context(client, model: str, question: str, context: str) -> str:
@@ -74,3 +78,48 @@ def answer_closed_book(client, model: str, question: str) -> str:
         ],
     )
     return _strip_think(resp.choices[0].message.content)
+
+
+def invoke_model(
+    deployment: str,
+    messages: list[dict],
+    tools: list[dict] | None = None,
+    model_name: str = None,
+) -> dict:
+    """
+    Invoke a model deployment with tool-calling support.
+    
+    Returns: {
+        tool_calls: [...],
+        latency_ms: float,
+        tokens_used: int
+    }
+    """
+    from .config import get_settings
+    from .tool_models import call_with_tools
+    
+    settings = get_settings()
+    client = get_client(settings)
+    
+    if tools is None:
+        tools = []
+    
+    # deployment name is the model name for this API
+    calls, usage, latency_s = call_with_tools(
+        client=client,
+        model=deployment,
+        messages=messages,
+        tools=tools,
+        tool_choice="auto",
+    )
+    
+    tokens = 0
+    if usage:
+        tokens = getattr(usage, "total_tokens", 0)
+    
+    return {
+        "tool_calls": calls,
+        "latency_ms": latency_s * 1000,
+        "tokens_used": tokens,
+    }
+
